@@ -2,6 +2,8 @@
 
 ## Steps
 
+How it was created?
+
 ### Create new React project using 'vite'
 
 ```bash
@@ -25,4 +27,14 @@ git commit -m "..."
 git brach -M master
 git remote add origin https://github.com/magyari-zoltan/portfolio.git
 git push -u origin master
+```
+
+### Deploy portofolio project
+
+```bash
+# Deploy
+docker-compose up -d --build
+
+# Undeploy
+docker-compose down
 ```
