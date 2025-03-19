@@ -1,5 +1,11 @@
 # Portfolio
 
+## Landing page
+
+### Wireframe
+
+![landing/doc/wireframes/index.html.png](landing/doc/wireframes/index.html.png)
+
 ## Steps
 
 How it was created?
