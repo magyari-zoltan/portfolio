@@ -1,0 +1,59 @@
+/* -------------------------------------------------------------------------- *
+ *                                   Globals
+ * -------------------------------------------------------------------------- */
+:root {
+    --shadow: 0px 4px 16px 0 rgba(0, 0, 0, 0.45), 0px 6px 32px 0 rgba(0, 0, 0, 0.25);
+
+    --shadow-small: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    --shadow-text: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    --shadow-dialog: 0px 4px 16px 0 rgba(0, 0, 0, 0.25), 0px 6px 32px 0 rgba(0, 0, 0, 0.15);
+
+    --shadow-button: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    --shadow-button-lowered: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    --shadow-button-elevated: 3px 3px 4px rgba(0, 0, 0, 0.5);
+
+    --color-button: var(--gray-9);
+    --bg-color-button: var(--gray-1);
+}
+
+/* -------------------------------------------------------------------------- *
+ *                                   Button
+ * -------------------------------------------------------------------------- */
+.button {
+  display: block;
+  margin: 0;
+  padding: 1.6rem;
+  width: fit-content;
+
+  text-align: center;
+  text-decoration: none;
+  font-size: 2rem;
+
+  color: var(--color-button);
+  background-color: var(--bg-color-button);
+
+  border: 1px solid transparent;
+  border-radius: 1rem;
+
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+
+.button-float {
+  box-shadow: var(--shadow-button);
+
+  &:hover {
+    transform: translateX(-1px) translateY(-1px);
+    box-shadow: var(--shadow-button-elevated);
+    filter: brightness(102%);
+  }
+
+  &:active {
+    transform: translateX(1px) translateY(1px);
+    box-shadow: var(--shadow-button-lowered);
+    filter: brightness(98%);
+  }
+}

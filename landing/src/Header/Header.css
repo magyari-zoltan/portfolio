@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'Navbar Title';
+  src: url('../../fonts/Roboto/Roboto-Black.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Logo';
+  src: url('../../fonts/Aladin/Aladin-Regular.ttf') format('truetype');
+}
+
+/* -------------------------------------------------------------------------- *
+ *                                    Navbar
+ * -------------------------------------------------------------------------- */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 0;
+
+  padding: 1rem;
+  width: 100%;
+  min-width: 47rem;
+
+  background-color: var(--gray-0);
+  box-shadow: var(--shadow-small);
+
+  container: navbar / inline-size;
+
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+
+/* -------------------------------------------------------------------------- *
+ *                                  Signature
+ * -------------------------------------------------------------------------- */
+.signature-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  width: fit-content;
+  min-width: 5rem;
+}
+
+.signature-logo {
+  margin: 0;
+  padding: 1rem 1rem 0.5rem;
+  width: fit-content;
+
+  color: var(--gray-0);
+  background-color: var(--signature-color);
+
+  font-family: 'Logo', cursive, sans-serif;
+  font-size: 2.4rem;
+
+  border-radius: 0.5rem;
+}
+
+.signature-name {
+  margin: 0;
+
+  color: var(--gray-9);
+
+  font-family: 'Navbar Title', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+

@@ -1,0 +1,21 @@
+/* -------------------------------------------------------------------------- *
+ *                                 Toggler Menu
+ * -------------------------------------------------------------------------- */
+.menu-toggler {
+  display: block;
+  padding: 1.2rem;
+
+  font-size: 2rem;
+
+  color: var(--signature-color);
+  background-color: var(--gray-2);
+
+  border-radius: 0.5rem;
+}
+
+@container navbar (width >= 800px) {
+  .menu-toggler {
+    display: none;
+  }
+}
+

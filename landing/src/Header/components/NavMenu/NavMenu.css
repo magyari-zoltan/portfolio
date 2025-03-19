@@ -1,0 +1,72 @@
+/* -------------------------------------------------------------------------- *
+ *                               Navigation menu
+ * -------------------------------------------------------------------------- */
+.navmenu {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-top: 0;
+  padding-left: 0;
+  width: fit-content;
+  list-style-type: none;
+}
+
+@container navbar (width < 800px) {
+  .navmenu {
+    flex-direction: column;
+    margin-top: 2rem;
+    padding-left: 1.25rem;
+    width: 100%;
+  }
+
+  /* ------------------------------------------------------------------------ *
+   * The class '.show' is a dynamic class controlled from code.
+   * It is only changed when '.navmenu' has the 'flex-direction: column' set.
+   * ------------------------------------------------------------------------ */
+  .navmenu:not(.show) {
+    display: none;
+  }
+}
+
+/* -------------------------------------------------------------------------- *
+ *                               Navigation item
+ * -------------------------------------------------------------------------- */
+.navitem {
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0.5rem;
+
+  &:hover {
+    transform: translateX(-1px) translateY(-1px);
+    background-color: var(--signature-color-light);
+    box-shadow: var(--shadow-button-elevated);
+  }
+
+  &:active {
+    transform: translateX(1px) translateY(1px);
+    background-color: var(--signature-color-light);
+    filter: brightness(98%);
+    box-shadow: var(--shadow-button-lowered);
+  }
+}
+
+/* -------------------------------------------------------------------------- *
+ *                               Navigation link
+ * -------------------------------------------------------------------------- */
+.navlink {
+  display: block;
+  margin-top: 0;
+  padding: 1.25rem;
+  width: 100%;
+
+  color: var(--var-9);
+
+  font-size: 2.4rem;
+  text-decoration: none;
+  letter-spacing: -2px;
+
+  &:hover {
+    color: var(--gray-2);
+    text-shadow: var(--shadow--text);
+  }
+}
