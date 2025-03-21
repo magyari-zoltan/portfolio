@@ -10,7 +10,7 @@ const Header = () => {
   const { dynamic_navmenu, toggleNavmenu } = useClassNameLogic(headerRef, navmenuRef);
 
   return (
-    <header ref={headerRef}>
+    <header ref={headerRef} className="header">
       <nav className="navbar">
         <article className="signature-container">
           <span className="signature-logo">MZ</span>
@@ -18,7 +18,10 @@ const Header = () => {
         </article>
 
         <TogglerMenu onToggle={toggleNavmenu} />
-        <NavMenu ref={navmenuRef} dynamicClassName={dynamic_navmenu} />
+        <NavMenu
+          ref={navmenuRef}
+          dynamicClassName={dynamic_navmenu}
+          onClose={toggleNavmenu} />
       </nav>
     </header >
   )

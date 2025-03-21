@@ -10,6 +10,7 @@
 
 /*------------------------------- Color theme --------------------------------*/
 :root {
+    --white: #f9f9f9;
     --gray-0: #f2f2f2;
     --gray-1: #e6e6e6;
     --gray-2: gainsboro;
@@ -30,6 +31,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    caret-color: transparent;
 }
 
 html {
@@ -92,10 +94,3 @@ span {
         font-size: 13px;
     }
 }
-
-header,
-main,
-footer {
-  min-width: 360px;
-}
-

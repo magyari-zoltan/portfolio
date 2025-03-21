@@ -9,9 +9,25 @@
 }
 
 /* -------------------------------------------------------------------------- *
+ *                                    Header
+ * -------------------------------------------------------------------------- */
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  min-width: var(--min-page-width);
+  max-width: var(--max-page-width);
+  margin: 0 auto;
+}
+
+/* -------------------------------------------------------------------------- *
  *                                    Navbar
  * -------------------------------------------------------------------------- */
 .navbar {
+  container: navbar / inline-size;
+
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -22,12 +38,13 @@
 
   padding: 1rem;
   width: 100%;
-  min-width: 47rem;
+  max-width: var(--max-page-width);
+  min-width: var(--min-page-width);
 
   background-color: var(--gray-0);
   box-shadow: var(--shadow-small);
 
-  container: navbar / inline-size;
+  z-index: 100;
 
   user-select: none;
   -moz-user-select: none;

@@ -1,0 +1,14 @@
+/* -------------------------------------------------------------------------- *
+ *                                   Main
+ * -------------------------------------------------------------------------- */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    min-width: var(--min-page-width);
+    max-width: var(--max-page-width);
+    margin: 0 auto;
+}
+

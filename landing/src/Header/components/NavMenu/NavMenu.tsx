@@ -3,27 +3,43 @@ import './NavMenu.css'
 
 interface NavMenuProps {
   ref: RefObject<HTMLUListElement | null>,
-  dynamicClassName: string
+  dynamicClassName: string,
+  onClose: () => void
 }
 
-const NavMenu = ({ ref, dynamicClassName }: NavMenuProps) => {
+const NavMenu = ({ ref, dynamicClassName, onClose }: NavMenuProps) => {
 
   return (
     <ul
       ref={ref}
-      className={`navmenu  ${dynamicClassName}`}
-    >
+      className={`navmenu  ${dynamicClassName}`}>
       <li className="navitem">
-        <a href="#home" className="navlink" tabIndex={-1}>Home</a>
+        <a
+          href="#home"
+          className="navlink"
+          tabIndex={-1}
+          onClick={onClose}>Home</a>
       </li>
       <li className="navitem">
-        <a href="#about" className="navlink" tabIndex={-1}>About</a>
+        <a
+          href="#about"
+          className="navlink"
+          tabIndex={-1}
+          onClick={onClose}>About</a>
       </li>
       <li className="navitem">
-        <a href="#portfolio" className="navlink" tabIndex={-1}>Portfolio</a>
+        <a
+          href="#portfolio"
+          className="navlink"
+          tabIndex={-1}
+          onClick={onClose}>Portfolio</a>
       </li>
       <li className="navitem">
-        <a href="#contact" className="navlink" tabIndex={-1}>Contact</a>
+        <a
+          href="#contact"
+          className="navlink"
+          tabIndex={-1}
+          onClick={onClose}>Contact</a>
       </li>
     </ul>
   )

@@ -2,7 +2,7 @@ import './Home.css'
 
 const Home = () => {
   return (
-    <div id="home" className="section">
+    <div id="home" className="section home-section">
       <img
         src="/images/profile.jpg"
         alt="profile picture"
@@ -21,7 +21,7 @@ const Home = () => {
 
         <a
           href="#portfolio"
-          className="button button-float button-primary"
+          className="button button-primary button-float"
           tabIndex={-1}>
           Portfolio
         </a>

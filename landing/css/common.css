@@ -2,6 +2,9 @@
  *                                   Globals
  * -------------------------------------------------------------------------- */
 :root {
+    --max-page-width: 140rem;
+    --min-page-width: 47rem;
+
     --shadow: 0px 4px 16px 0 rgba(0, 0, 0, 0.45), 0px 6px 32px 0 rgba(0, 0, 0, 0.25);
 
     --shadow-small: 1px 1px 4px rgba(0, 0, 0, 0.5);
@@ -78,7 +81,7 @@
     box-shadow: var(--shadow-button);
 
     &:hover {
-      transform: translateX(-1px) translateY(-1px);
+      transform: translateX(-2px) translateY(-2px);
       box-shadow: var(--shadow-button-elevated);
       filter: brightness(102%);
     }
@@ -91,7 +94,31 @@
   }
 
   &.button-primary {
-      color: var(--gray-1);
-      background-color: var(--signature-color);
+    color: var(--gray-1);
+    background-color: var(--signature-color);
   }
+}
+  
+/* -------------------------------------------------------------------------- *
+ *                                    Chip
+ * -------------------------------------------------------------------------- */
+.chip {
+  display: inline-block;
+
+  margin: 20px 20px 0 0;
+  padding: 15px 20px 10px;
+
+  color: var(--gray-8);
+  background-color: var(--gray-1);
+  border: 1px solid var(--gray-4);
+  border-radius: 6px;
+
+  font-family: 'Normal';
+  font-weight: 600;
+
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 }
