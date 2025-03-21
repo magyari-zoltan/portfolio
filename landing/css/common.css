@@ -17,17 +17,26 @@
 }
 
 /* -------------------------------------------------------------------------- *
+ *                                   Section
+ * -------------------------------------------------------------------------- */
+.section {
+  width: 100%;
+  padding-top: 7rem;
+  padding-bottom: 14rem;
+}
+
+/* -------------------------------------------------------------------------- *
  *                                   Button
  * -------------------------------------------------------------------------- */
 .button {
   display: block;
   margin: 0;
-  padding: 1.6rem;
+  padding: 1.2rem 3rem;
   width: fit-content;
 
   text-align: center;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.6rem;
 
   color: var(--color-button);
   background-color: var(--bg-color-button);
@@ -40,20 +49,25 @@
   -khtml-user-select: none;
   -webkit-user-select: none;
   -o-user-select: none;
-}
+    
+  &.button-float {
+    box-shadow: var(--shadow-button);
 
-.button-float {
-  box-shadow: var(--shadow-button);
+    &:hover {
+      transform: translateX(-1px) translateY(-1px);
+      box-shadow: var(--shadow-button-elevated);
+      filter: brightness(102%);
+    }
 
-  &:hover {
-    transform: translateX(-1px) translateY(-1px);
-    box-shadow: var(--shadow-button-elevated);
-    filter: brightness(102%);
+    &:active {
+      transform: translateX(1px) translateY(1px);
+      box-shadow: var(--shadow-button-lowered);
+      filter: brightness(98%);
+    }
   }
 
-  &:active {
-    transform: translateX(1px) translateY(1px);
-    box-shadow: var(--shadow-button-lowered);
-    filter: brightness(98%);
+  &.button-primary {
+      color: var(--gray-1);
+      background-color: var(--signature-color);
   }
 }
