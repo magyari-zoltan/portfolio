@@ -7,22 +7,7 @@
   justify-content: flex-start;
   align-items: center;
 
-  margin: 0 auto;
-
-  user-select: none;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -o-user-select: none;
-
-  & > .title {
-    width: 90%;
-    max-width: 50rem;
-
-    & > h2, p {
-      text-align: center;
-    }
-  }
+  margin: 0;
 
   & > .button {
     margin-top: 3.5rem;
