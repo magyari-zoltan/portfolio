@@ -1,0 +1,53 @@
+/* -------------------------------------------------------------------------- *
+ *                               Introduction
+ * -------------------------------------------------------------------------- */
+.introduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin: 0 auto;
+
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+
+  & > .title {
+    width: 90%;
+    max-width: 50rem;
+
+    & > h2, p {
+      text-align: center;
+    }
+    & > h2 {
+      font-size: 3.2rem;
+    }
+    & > p {
+      font-size: 1.6rem;
+    }
+  }
+
+  & > .button {
+    margin-top: 3.5rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- *
+ *                              Profile picture 
+ * -------------------------------------------------------------------------- */
+.rounded-profile-picture {
+  display: block;
+  margin: 5.6em auto 0;
+  width: 70%;
+  max-width: 25rem;
+  border-radius: 50%;
+
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
