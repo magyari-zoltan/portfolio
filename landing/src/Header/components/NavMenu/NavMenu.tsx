@@ -14,16 +14,16 @@ const NavMenu = ({ ref, dynamicClassName }: NavMenuProps) => {
       className={`navmenu  ${dynamicClassName}`}
     >
       <li className="navitem">
-        <a href="#" className="navlink">Home</a>
+        <a href="#home" className="navlink" tabIndex={-1}>Home</a>
       </li>
       <li className="navitem">
-        <a href="#about" className="navlink">About</a>
+        <a href="#about" className="navlink" tabIndex={-1}>About</a>
       </li>
       <li className="navitem">
-        <a href="#portfolio" className="navlink">Portfolio</a>
+        <a href="#portfolio" className="navlink" tabIndex={-1}>Portfolio</a>
       </li>
       <li className="navitem">
-        <a href="#contact" className="navlink">Contact</a>
+        <a href="#contact" className="navlink" tabIndex={-1}>Contact</a>
       </li>
     </ul>
   )
