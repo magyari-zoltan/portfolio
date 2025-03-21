@@ -93,3 +93,9 @@ span {
     }
 }
 
+header,
+main,
+footer {
+  min-width: 360px;
+}
+
