@@ -53,12 +53,12 @@
       width: 40%;
       margin: 8% auto auto 8%;
 
-      & > .title {
+      .title {
         text-wrap: balance;
         color: var(--gray-4);
       }
 
-      & > .button {
+      .button {
         color: var(--gray-9);
         background-color: var(--gray-1);
       }

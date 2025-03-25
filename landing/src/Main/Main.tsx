@@ -1,5 +1,6 @@
 import About from './components/About/About';
 import Home from './components/Home/Home';
+import Portfolio from './components/Portfolio/Portfolio';
 import './Main.css';
 
 const Main = () => {
@@ -7,6 +8,7 @@ const Main = () => {
     <main>
       <Home />
       <About />
+      <Portfolio />
     </main >
   );
 }
