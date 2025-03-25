@@ -13,9 +13,8 @@
   border-radius: 0.5rem;
 }
 
-@container navbar (width >= 800px) {
+@container navbar (width >= 70rem) {
   .menu-toggler {
     display: none;
   }
 }
-

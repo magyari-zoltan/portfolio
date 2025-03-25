@@ -3,37 +3,65 @@
  * -------------------------------------------------------------------------- */
 .home-section {
   background-color: var(--white);
-}
 
-/* -------------------------------------------------------------------------- *
- *                               Introduction
- * -------------------------------------------------------------------------- */
-.introduction {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  /* ------------------------------------------------------------------------ *
+   *                              Profile picture 
+   * ------------------------------------------------------------------------ */
+  .rounded-profile-picture {
+    display: block;
+    margin: 12rem auto 0;
+    width: 70%;
+    max-width: 25rem;
+    border-radius: 50%;
 
-  margin: 0;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
 
-  & > .button {
-    margin-top: 3.5rem;
   }
-}
 
-/* -------------------------------------------------------------------------- *
- *                              Profile picture 
- * -------------------------------------------------------------------------- */
-.rounded-profile-picture {
-  display: block;
-  margin: 12rem auto 0;
-  width: 70%;
-  max-width: 25rem;
-  border-radius: 50%;
+  /* ------------------------------------------------------------------------ *
+   *                               Introduction
+   * ------------------------------------------------------------------------ */
+  .introduction {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 
-  user-select: none;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -o-user-select: none;
+    margin: 0;
+
+    & > .button {
+      margin-top: 3.5rem;
+    }
+  }
+
+  @container main-content (width >= 110rem) {
+    height: 100vh;
+    background-image: url('/images/profile-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top right;
+
+    .rounded-profile-picture {
+      display: none;
+    }
+
+    .introduction {
+      width: 40%;
+      margin: 8% auto auto 8%;
+
+      & > .title {
+        text-wrap: balance;
+        color: var(--gray-4);
+      }
+
+      & > .button {
+        color: var(--gray-9);
+        background-color: var(--gray-1);
+      }
+    }
+  }
 }

@@ -24,7 +24,7 @@
     }
   }
 
-  @container about-section (width > 960px) {
+  @container about-section (width >= 75rem) {
     .information {
       display: grid;
       grid-template-columns: auto 35rem;
@@ -32,7 +32,7 @@
     }
   }
 
-  @container about-section (width > 1600px) {
+  @container about-section (width >= 125rem) {
     .information {
       grid-template-columns: auto 50rem;
       gap: 5rem;

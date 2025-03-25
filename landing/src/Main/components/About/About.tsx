@@ -3,14 +3,14 @@ import './About.css';
 const About = () => {
   return (
     <div id="about" className="section about-section">
-      <div className="title">
+      <section className="title">
         <h2>About Me</h2>
         <p>
           Here you will find more information about me, about my
           background, what I do and my current skills mostly in
           terms of programming and technology
         </p>
-      </div>
+      </section>
 
       <div className="information">
         <article className="history">
@@ -62,7 +62,7 @@ const About = () => {
         tabIndex={-1}>
         Contact
       </a>
-    </div>
+    </div >
   );
 }
 
