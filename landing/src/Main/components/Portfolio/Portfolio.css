@@ -10,15 +10,18 @@
 
   .project-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5%;
+    grid-template-columns: auto;
+    gap: 6rem;
 
     width: 90%;
     margin: 7rem auto 0;
 
     .project {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
       padding: 2.8rem;
-      margin: 7rem 2rem 0;
 
       background-color: var(--gray-0);
       border-radius: 0.5rem;
@@ -29,17 +32,41 @@
         box-shadow: var(--shadow);
       }
 
-      .button-group {
-        .button {
-          width: 13rem;
+      .information {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+
+        .button-group {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 2.5rem;
+
+          .button {
+            width: 13rem;
+          }
         }
       }
-
     }
 
-    /* TODO: make it responsive to look nice */
-    @container main-content (width < 110rem) {
+    @container main-content (width > 75rem) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @container main-content (width > 120rem) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @container main-content (width > 145rem) {
       grid-template-columns: auto;
+
+      .project {
+        display: grid;
+        grid-template-columns: 35% auto;
+        align-items: center;
+        gap: 5%;
+      }
     }
   }
 
