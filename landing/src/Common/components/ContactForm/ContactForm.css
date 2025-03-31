@@ -1,6 +1,6 @@
 /* -------------------------------------------------------------------------- *
- *                               Contact section
+ *                                   Contact Form
  * -------------------------------------------------------------------------- */
-.contact-section {
-  background-color: var(--white);
+.form.contact-form {
+  margin: 7rem auto 0;
 }

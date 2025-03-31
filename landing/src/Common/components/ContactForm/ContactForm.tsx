@@ -1,3 +1,5 @@
+import './ContactForm.css'
+
 interface ContactFormProps {
   action: string;
 }
@@ -6,7 +8,7 @@ const ContactForm = ({ action }: ContactFormProps) => (
   <form
     action={action}
     method="POST"
-    className="contact-form">
+    className="form contact-form">
     <label htmlFor="name">
       Name*
       <input
