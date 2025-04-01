@@ -8,7 +8,7 @@ const ContactForm = ({ action }: ContactFormProps) => (
   <form
     action={action}
     method="POST"
-    className="form contact-form">
+    className="dialog dialog-float form contact-form">
     <label htmlFor="name">
       Name*
       <input
