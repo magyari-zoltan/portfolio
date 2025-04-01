@@ -1,0 +1,72 @@
+/* -------------------------------------------------------------------------- *
+ *                                    Footer
+ * -------------------------------------------------------------------------- */
+.footer {
+  display: grid;
+  grid-template-areas: 'information' 'links';
+  justify-content: center;
+  align-content: strech;
+
+  padding: 3rem;
+  margin: 0 auto;
+  width: 100%;
+  max-width: var(--max-page-width);
+  min-width: var(--min-page-width);
+
+  background-color: var(--gray-0);
+
+  .informations {
+    grid-area: information;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+
+    .info, .email {
+      margin-top: 0;
+      font-family: 'Normal', sans-serif;
+      font-size: 1.2rem;
+    }
+
+    .info {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+  }
+
+  .navicons {
+    grid-area: links;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    .navicon {
+      font-size: 3.4rem;
+      color: var(--signature-color);
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+@media (min-width: 28rem) {
+  .footer {
+    grid-template-areas: 'information links';
+    justify-content: space-between;
+
+    .informations {
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .navicons {
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+}
