@@ -2,7 +2,7 @@ import ContactForm from '../../../Common/components/ContactForm/ContactForm';
 import './Contact.css'
 
 const Contact = () => (
-  <article id="contact" className="section contact-section">
+  <article id="contact" className="section contact-section" >
     <div className="title">
       <h2>Contact me</h2>
       <p>
@@ -12,7 +12,7 @@ const Contact = () => (
     </div>
 
     <ContactForm action="https://formspree.io/mzzeaypl" />
-  </article>
+  </article >
 )
 
 

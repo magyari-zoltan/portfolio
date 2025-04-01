@@ -12,5 +12,7 @@ main {
   min-width: var(--min-page-width);
   max-width: var(--max-page-width);
   margin: 0 auto;
+
+  background-color: var(--white);
 }
 

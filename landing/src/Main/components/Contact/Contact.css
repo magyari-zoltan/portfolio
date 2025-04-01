@@ -2,5 +2,7 @@
  *                               Contact section
  * -------------------------------------------------------------------------- */
 .contact-section {
+  padding-bottom: 7rem;
+
   background-color: var(--white);
 }
