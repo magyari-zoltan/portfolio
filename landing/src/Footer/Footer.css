@@ -54,14 +54,15 @@
   }
 }
 
+/* ----------------------------- Horizontal version ------------------------- */
 @media (min-width: 28rem) {
   .footer {
     grid-template-areas: 'information links';
     justify-content: space-between;
 
     .informations {
-      justify-content: flex-end;
-      align-items: center;
+      justify-content: flex-start;
+      align-items: flex-start;
     }
 
     .navicons {
