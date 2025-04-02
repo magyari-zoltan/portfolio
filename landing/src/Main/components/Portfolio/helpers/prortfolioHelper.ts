@@ -10,18 +10,18 @@ type Project = {
 export function getProjects(): Project[] {
   return [
     {
-      imageUrl: "/images/project-1.jpg",
-      imageAlt: "First portfolio project",
-      title: "First Project",
-      description: "Adipisicing adipisicing molestiae omnis perferendis dignissimos, tenetur doloremque Eius laborum et sequi modi laborum? Harum quo modi ducimus quos aut",
-      gitRepoUrl: "#",
-      appUrl: "#",
+      imageUrl: "/images/portfolio-html.jpg",
+      imageAlt: "Main page of the Portfolion HTML",
+      title: "Portfolio (HTML)",
+      description: "HTML verion of the portofio landing page. The purpose of this repo is to demonstrate my HTML, CSS, and JavaScript skill.",
+      gitRepoUrl: "https://github.com/magyari-zoltan/portfolio-html",
+      appUrl: "https://magyari-zoltan.github.io/portfolio-html",
     }, {
-      imageUrl: "/images/project-2.jpg",
-      imageAlt: "Second portfolio project",
-      title: "Second Project",
-      description: "Elit nihil autem fugit distinctio repellat ipsum Asperiores voluptate nihil numquam reprehenderit illo accusamus! Ducimus debitis dicta hic quibusdam expedita.",
-      gitRepoUrl: "#",
+      imageUrl: "/images/portfolio.jpg",
+      imageAlt: "Main page of the Portfolio React",
+      title: "Portfolio (React)",
+      description: "React version of my portfolio landing page. The page was created using vanilla React components styled with CSS and TypeScript. It is deployed using docker-compose using a centra docker-compose.yaml in order to deploy at once all the portfolio projects with a singele command.",
+      gitRepoUrl: "https://github.com/magyari-zoltan/portfolio",
       appUrl: "#",
     }, {
       imageUrl: "/images/project-3.jpg",
