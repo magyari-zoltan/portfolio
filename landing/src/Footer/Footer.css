@@ -46,6 +46,22 @@
     .navicon {
       font-size: 3.4rem;
       color: var(--signature-color);
+
+      .fa-circle-arrow-up.detached-from-footer {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+
+        background-color: var(--gray-4);
+        outline: 2px solid var(--gray-4);
+        border-radius: 50%;
+
+        box-shadow: var(--shadow);
+      }
+
+      .fa-circle-arrow-up.hidden {
+        display: none;
+      }
     }
   }
 
