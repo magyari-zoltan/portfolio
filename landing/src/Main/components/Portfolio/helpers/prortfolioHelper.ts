@@ -12,14 +12,14 @@ export function getProjects(): Project[] {
     {
       imageUrl: "/images/portfolio-html.jpg",
       imageAlt: "Main page of the Portfolion HTML",
-      title: "Portfolio (HTML)",
+      title: "Portfolio Landing Page (HTML)",
       description: "HTML verion of the portofio landing page. The purpose of this repo is to demonstrate my HTML, CSS, and JavaScript skill.",
       gitRepoUrl: "https://github.com/magyari-zoltan/portfolio-html",
       appUrl: "https://magyari-zoltan.github.io/portfolio-html",
     }, {
       imageUrl: "/images/portfolio.jpg",
       imageAlt: "Main page of the Portfolio React",
-      title: "Portfolio (React)",
+      title: "Portfolio Landing Page (React)",
       description: "React version of my portfolio landing page. The page was created using vanilla React components styled with CSS and TypeScript. It is deployed using docker-compose using a centra docker-compose.yaml in order to deploy at once all the portfolio projects with a singele command.",
       gitRepoUrl: "https://github.com/magyari-zoltan/portfolio",
       appUrl: "#",
