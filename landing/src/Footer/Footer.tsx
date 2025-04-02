@@ -16,10 +16,10 @@ const Footer = () => {
           <strong>Email: </strong>
           <a
             className="email"
-            href="mailto:magyari.zoltan@protonmail.com">magyari.zoltan@protonmail.com</a>
+            href="mailto:magyari.zoltan@outlook.com">magyari.zoltan@outlook.com</a>
         </p>
         <p className="info">
-          <strong>Mobile:</strong> +40 746 964 062
+          <strong>Mobile:</strong> +40 750 686 104
         </p>
         <p className="info">
           <strong>App version:</strong> 1.0

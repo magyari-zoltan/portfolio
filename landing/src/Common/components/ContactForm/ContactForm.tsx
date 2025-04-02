@@ -37,7 +37,7 @@ const ContactForm = ({ action }: ContactFormProps) => (
         id="tel"
         type="tel"
         name="tel"
-        placeholder="Ex. +40 748 972 936"
+        placeholder="Ex. +40 750 686 104"
         pattern="(^$)|(^\+[0-9]{2}\s)([0-9]{3})\s([0-9]{3})\s([0-9]{3,5})$"
         className="input" />
     </label>
