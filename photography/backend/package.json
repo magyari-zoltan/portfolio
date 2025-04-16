@@ -1,0 +1,33 @@
+{
+  "name": "photography - backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "node dist/bundle.js",
+    "lint": "eslint"
+  },
+  "keywords": [
+    "Typescript",
+    "NodeJS",
+    "Express",
+    "MongoDB"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "Backend for the 'photography' protfolio project. Technologies: typescript, nodejs, express. Database: mongodb.",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "ts-loader": "^9.5.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.1",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.5",
+    "webpack-cli": "^6.0.1"
+  }
+}
