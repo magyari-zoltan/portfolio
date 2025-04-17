@@ -42,22 +42,25 @@ services:
       - "5001:5001"
     environment:
       MONGODB_URI: mongodb://root:example@mongodb:27017/
+      BACKEND_IMAGES_VOLUME: /data/images/photography
       BACKEND_BASE_PATH: /photography-api
       BACKEND_PORT: 5001
+    volumes:
+      - ./photography/images:/data/images/photography
     networks:
       - nginx__photography-backend
       - photography-backend__mongodb
     depends_on:
       - mongodb
-    # restart: always
+    restart: always
 
   # Landing page
   landing-page:
     build: ./landing
     container_name: landing-page
-    restart: always
     networks:
       - nginx__landing-page
+    restart: always
       
   # Reverse nginx proxy
   nginx-proxy:
@@ -66,7 +69,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
     networks:
       - nginx__landing-page
       - nginx__mongo-express
@@ -75,6 +78,7 @@ services:
       - landing-page
       - mongo-express
       - photography-backend
+
 volumes:
   mongodb:
 
