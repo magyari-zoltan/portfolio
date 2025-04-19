@@ -12,5 +12,5 @@ WORKDIR /app
 USER node
 COPY --from=builder /app/package.json .
 COPY --from=builder /app/dist ./dist
-EXPOSE 5001
+EXPOSE 5000
 CMD ["npm", "start"]
