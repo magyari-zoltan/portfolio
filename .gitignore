@@ -13,6 +13,8 @@ dist-ssr
 *.local
 */.vite/*
 */data/*
+*/images/*
+
 
 package-lock.json
 
