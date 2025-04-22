@@ -6,7 +6,8 @@ import { IAlbum } from "../../model/IAlbum";
  */
 const Album = new Schema<IAlbum>({
   name: { type: String, required: true, unique: true, trim: true },
-  image: { type: String, required: true, unique: true, trim: true }
+  image: { type: String, required: true, unique: true, trim: true },
+  position: { type: Number, required: true, unique: true }
 })
 
 export default mongoose.model<IAlbum>('Album', Album);

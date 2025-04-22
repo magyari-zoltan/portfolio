@@ -23,7 +23,7 @@ export async function createAlbum(req: Request, res: Response) {
 
     const targetFoder = createFolder(name, IMAGES_VOLUME);
     const imageName = saveImageToFolder(image, targetFoder);
-    const album = await createNewAlbumEntryInDB({ name, image: imageName });
+    const album = await createNewAlbumEntryInDB({ name, image: imageName, position: 1 });
 
     res.json(album);
   } catch (error) {
