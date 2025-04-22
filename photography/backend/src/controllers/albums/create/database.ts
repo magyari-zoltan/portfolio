@@ -8,5 +8,9 @@ import { IAlbum } from "../../../model/IAlbum";
  */
 export async function createNewAlbumEntryInDB(album: IAlbum) {
   const entity = new Album(album);
-  return await entity.save();
+  await entity.save();
+}
+
+export async function existsAlbum(name: string): Promise<boolean> {
+  return !!await Album.exists({ name });
 }
