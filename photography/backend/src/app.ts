@@ -1,8 +1,12 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 import albums from './routes/albums';
+import { connectDB } from './database';
 
 const BASE_PATH = process.env.BASE_PATH || "/photography/api";
+const DATABASE_URI = process.env.MONGODB_URI || '';
+
+connectDB(DATABASE_URI);
 
 const app: Application = express();
 
@@ -15,4 +19,3 @@ console.info(`Base path is '${BASE_PATH}'`);
 app.use(BASE_PATH, albums);
 
 export default app;
-

@@ -120,3 +120,46 @@ For file upload the following libraries are used:
 npm install formidable sanitize-filename
 npm install @types/formidable
 ```
+
+CURL command 
+```bash
+curl --location 'http://localhost/photography/api/albums' \
+--form 'name="Kids"' \
+--form 'images=@"Portfolio/Kids/image-02.jpg"'
+```
+
+Define entry point
+```ts
+import { Router } from 'express';
+
+const router = Router();
+router.post('/albums', createAlbum);
+```
+
+#### 2.2 Mogo db
+
+The following libraries are used to connect to mongodb.
+```bash
+npm install mongoose
+```
+
+Connecting to mongodb database
+```ts
+import mongoose from 'mongoose';
+
+/**
+ * Connects to the MongoDB database using the database URI.
+ * On connection error, the backend app will terminate.
+ * 
+ * @param databaseUri defines how to connect to the database.
+ */
+export async function connectDB(databaseUri: string) {
+  try {
+    await mongoose.connect(databaseUri);
+    console.info(`Connected to MongoDB: ${databaseUri}`);
+  } catch (error) {
+    console.error(error);
+    process.exit(1);
+  }
+}
+```

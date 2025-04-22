@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { parseFormData } from './parser';
 import { createFolder, saveImageToFolder } from './files';
+import { createNewAlbumEntryInDB } from './database';
 
 
 const IMAGES_VOLUME: string = `${process.env.IMAGES_VOLUME}`;
@@ -13,12 +14,12 @@ console.debug(`Path to store: ${IMAGES_VOLUME}`);
  */
 export async function createAlbum(req: Request, res: Response) {
   try {
-    const { album, image } = await parseFormData(req);
-    const targetFoder = createFolder(album, IMAGES_VOLUME);
+    const { name, image } = await parseFormData(req);
+    const targetFoder = createFolder(name, IMAGES_VOLUME);
     const imageName = saveImageToFolder(image, targetFoder);
+    const album = await createNewAlbumEntryInDB({ name, image: imageName });
 
-
-    res.json({ message: { album, sourceImage: image.originalFilename, imageName } });
+    res.json(album);
   } catch (error) {
     const message = `Error creating album. ${error}`;
     console.error(message);

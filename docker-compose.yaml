@@ -41,7 +41,7 @@ services:
     ports:
       - "5001:5001"
     environment:
-      MONGODB_URI: mongodb://root:example@mongodb:27017/
+      MONGODB_URI: mongodb://root:example@mongodb:27017
       IMAGES_VOLUME: /data/images/photography
       BASE_PATH: /photography/api
       PORT: 5001

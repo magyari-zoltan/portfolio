@@ -1,6 +1,6 @@
 import { Request } from 'express';
-import { formidable, File } from 'formidable';
-import { Field, Image, parseField, parseSingleImage } from '../../../common/parseFormData';
+import { formidable } from 'formidable';
+import { Field, Image, parseField, parseSingleImage } from '../../../common/form-data';
 
 type CreateAlbumData = Promise<Field & Image>
 
@@ -12,7 +12,7 @@ type CreateAlbumData = Promise<Field & Image>
  * @returns 
  * ```typescript
  * type CreateAlbumData = Promise<{
- *   album: string;
+ *   name: string;
  *   image: File;
  * }>
  * ```
@@ -27,6 +27,6 @@ export async function parseFormData(req: Request): CreateAlbumData {
   const [fields, files] = await form.parse(req);
   const { name } = parseField(fields, 'name');
   const { image } = parseSingleImage(files);
-  return { album: name as string, image };
+  return { name, image };
 }
 
