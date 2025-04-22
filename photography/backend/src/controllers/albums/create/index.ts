@@ -25,9 +25,9 @@ export async function createAlbum(req: Request, res: Response) {
     const imageName = saveImageToFolder(image, targetFoder);
     const album = await createNewAlbumEntryInDB({ name, image: imageName, position: 1 });
 
-    res.json(album);
-  } catch (error) {
-    const message = `Error creating album. ${error}`;
+    res.status(200).json(album);
+  } catch (errorDetail) {
+    const message = `Error creating album. ${errorDetail}`;
     console.error(message);
     res.status(500).json({ message })
   }
