@@ -5,7 +5,7 @@ import { createNewAlbumEntryInDB, existsAlbum } from './database';
 
 
 const IMAGES_VOLUME: string = `${process.env.IMAGES_VOLUME}`;
-console.debug(`Path to store: ${IMAGES_VOLUME}`);
+console.debug(`Path to store images: ${IMAGES_VOLUME}`);
 
 /**
  * Business logic for creating an album.

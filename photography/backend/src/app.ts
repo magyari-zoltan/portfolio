@@ -1,6 +1,7 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 import albums from './routes/albums';
+import images from './routes/images';
 import { connectDB } from './database';
 
 const BASE_PATH = process.env.BASE_PATH || "/photography/api";
@@ -17,5 +18,6 @@ app.use(express.json());
 // Routes
 console.info(`Base path is '${BASE_PATH}'`);
 app.use(BASE_PATH, albums);
+app.use(BASE_PATH, images);
 
 export default app;
