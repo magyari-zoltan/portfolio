@@ -1,8 +1,8 @@
 import { Request } from 'express';
-import { formidable } from 'formidable';
-import { Field, Image, parseField, parseSingleImage } from '../../../common/form-data';
+import { File, formidable } from 'formidable';
+import { parseField, parseSingleImage } from '../../../common/form-data';
 
-type CreateAlbumData = Promise<Field & Image>
+type CreateAlbumData = Promise<{ name: string, image: File }>
 
 /**
  * Retrieves the album name and its associated image. If any obstacle prevents retrieving this data, an exception will be thrown.
@@ -25,8 +25,8 @@ type CreateAlbumData = Promise<Field & Image>
 export async function parseFormData(req: Request): CreateAlbumData {
   const form = formidable({});
   const [fields, files] = await form.parse(req);
-  const { name } = parseField(fields, 'name');
-  const { image } = parseSingleImage(files);
+  const name = parseField(fields, 'name');
+  const image = parseSingleImage(files);
   return { name, image };
 }
 

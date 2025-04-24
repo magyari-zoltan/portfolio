@@ -1,16 +1,13 @@
 import { Request, Response } from 'express';
 import { parseFormData } from './parser';
-import { createFolder, saveImageToFolder } from './files';
 import { createNewAlbumEntryInDB, existsAlbum } from './database';
+import { saveImageToStore } from '../../../common/image-store';
 
-
-const IMAGES_VOLUME: string = `${process.env.IMAGES_VOLUME}`;
-console.debug(`Path to store images: ${IMAGES_VOLUME}`);
 
 /**
  * Business logic for creating an album.
  *
- * @throws `Error creating album. ${error}`
+ * @throws Error creating album. ${error}
  */
 export async function createAlbum(req: Request, res: Response) {
   try {
@@ -21,9 +18,8 @@ export async function createAlbum(req: Request, res: Response) {
       throw Error(`The album with the name '${name}' already exists.`)
     }
 
-    const targetFoder = createFolder(name, IMAGES_VOLUME);
-    const imageName = saveImageToFolder(image, targetFoder);
-    const album = await createNewAlbumEntryInDB({ name, image: imageName, position: 1 });
+    const imageName = saveImageToStore(image);
+    const album = await createNewAlbumEntryInDB(name, imageName);
 
     res.status(200).json(album);
   } catch (errorDetail) {

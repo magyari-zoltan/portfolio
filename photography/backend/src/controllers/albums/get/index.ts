@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { getAlbumsFromDB } from './database';
+import { getImageFromDB } from '../../images/upload/database';
 
 /**
  * Business logic for retrieving all albums from the database.
@@ -8,7 +9,12 @@ import { getAlbumsFromDB } from './database';
  */
 export async function getAlbums(req: Request, res: Response) {
   try {
-    const albums = await getAlbumsFromDB();
+    const albumEntities = await getAlbumsFromDB();
+    const albums = await Promise.all(albumEntities.map(async (album) => ({
+      coverImageName: (await getImageFromDB(album.coverImageId)).name,
+      name: album.name,
+      position: album.position
+    })));
     console.debug({ albums });
     res.status(200).json(albums);
   } catch (errorDetail) {

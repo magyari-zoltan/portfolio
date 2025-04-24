@@ -1,9 +1,12 @@
 import { Router } from 'express';
-import { getImage } from '../controllers/images/get';
+import { getImageById, getImageByName } from '../controllers/images/get';
+import { uploadImage } from '../controllers/images/upload';
 
 const router = Router();
 
-router.get('/images/:album/:imageName', getImage);
+router.get('/images/file/:imageName', getImageByName);
+router.get('/images/:id', getImageById);
+router.post('/images', uploadImage);
 
 export default router;
 
