@@ -6,6 +6,7 @@ import { getImageFromDB } from '../../images/upload/database';
  * Business logic for retrieving all albums from the database.
  *
  * @throws `Failed to get the list of albums from the database. ${errorDetail}`
+ * @throws The image with the id '${id}' does not exists.
  */
 export async function getAlbums(req: Request, res: Response) {
   try {

@@ -32,6 +32,7 @@ export async function getImageByName(req: Request, res: Response) {
  * Business logic for retrieving an image from the store by its id.
  *
  * @throws The image can not be retrieved. ${errorDetail}
+ * @throws The image with the id '${id}' does not exists.
  */
 export async function getImageById(req: Request, res: Response) {
   try {

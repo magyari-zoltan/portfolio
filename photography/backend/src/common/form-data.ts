@@ -12,7 +12,7 @@ import { Fields, Files, File } from 'formidable';
  * @throws Missing ${fieldName} field.
  */
 export function parseField(fields: Fields, fieldName: string): any {
-  if (!(fieldName in fields) || !fields[fieldName]) {
+  if (!(fieldName in fields) || !fields[fieldName] || !fields[fieldName]?.length) {
     console.debug(`Parsing fields ${fields} failed`);
     throw new Error(`Missing ${fieldName} field.`)
   }

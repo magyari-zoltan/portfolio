@@ -1,6 +1,7 @@
 import { Types } from "mongoose";
 import Album from "../../../database/collections/Album";
 import Image from "../../../database/collections/Image";
+import { IAlbum } from "../../../model/IAlbum";
 
 /**
  * Creates a new album entry in the database.
@@ -41,6 +42,24 @@ export async function createNewAlbumEntryInDB(name: string, coverImageName: stri
  */
 export async function existsAlbum(name: string): Promise<boolean> {
   return !!await Album.exists({ name });
+}
+
+/**
+ * Retrieves an Album entry from the database by id.
+ *
+ * @param id is the ID of the image that should be returned.
+ * @returns Promise<IAlbum>
+ * @throws The album with the id '${id}' does not exists.
+ */
+export async function getAlbumFromDB(id: Types.ObjectId): Promise<IAlbum> {
+  const album = await Album.findById(id).exec();
+  console.debug(`Album retrieved from db: ${album}`);
+
+  if (!album) {
+    throw Error(`The album with the id '${id}' does not exists.`)
+  }
+
+  return album as IAlbum;
 }
 
 /**

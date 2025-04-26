@@ -1,3 +1,4 @@
+import { toObjectID } from "../../../common/database";
 import Image from "../../../database/collections/Image"
 import { IImage } from "../../../model/IImage";
 import { Types } from 'mongoose';
@@ -31,26 +32,19 @@ export async function existsImage(name: string): Promise<boolean> {
 /**
  * Retrieves an image entry from the database by id.
  *
- * @returns Promise<IImage[]>
+ * @param id is the ID of the image that should be returned.
+ * @returns Promise<IImage>
+ * @throws The image with the id '${id}' does not exists.
  */
 export async function getImageFromDB(id: Types.ObjectId): Promise<IImage> {
   const image = await Image.findById(id).exec();
   console.debug(`Image retrieved from db: ${image}`);
-  return image as IImage;
-}
 
-/**
- * Takes a string and converts it to a `Types.ObjectId`. If the conversion fails, an error is thrown.
- *
- * @param id that should be converted to `Types.ObjectID`.
- * @returns `Types.ObjectId`.
- * @throws Invalid object id '${id}'.
- */
-function toObjectID(id: string): Types.ObjectId {
-  if (Types.ObjectId.isValid(id)) {
-    return new Types.ObjectId(id);
+  if (!image) {
+    throw Error(`The image with the id '${id}' does not exists.`)
   }
-  throw new Error(`Invalid object id '${id}'`);
+
+  return image as IImage;
 }
 
 /**
