@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { parseFormData } from './parser';
 import { deleteImageFromStore, saveImageToStore } from '../../../common/image-store';
 import { createNewImageEntryInDB } from './database';
-import { existsAlbum, getAlbumFromDB } from '../../albums/create/database';
+import { getAlbumFromDB } from '../../albums/create/database';
 import { toObjectID } from '../../../common/database';
 
 /**

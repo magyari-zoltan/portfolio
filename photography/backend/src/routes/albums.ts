@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { createAlbum } from '../controllers/albums/create';
-import { getAlbums } from '../controllers/albums/get';
+import { createAlbum } from '../business/albums/create';
+import { getAlbums } from '../business/albums/get';
 
 const router = Router();
 

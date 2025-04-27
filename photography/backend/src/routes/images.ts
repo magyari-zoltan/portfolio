@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { getImageById, getImageByName } from '../controllers/images/get';
-import { uploadImage } from '../controllers/images/upload';
+import { getImageById, getImageByName } from '../business/images/get';
+import { uploadImage } from '../business/images/upload';
 
 const router = Router();
 
