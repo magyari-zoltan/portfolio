@@ -54,6 +54,19 @@ services:
       - mongodb
     restart: always
 
+  # Photography frontend
+  photography-frontend:
+    build: ./photography/frontend
+    container_name: photography-frontend
+    networks:
+      - nginx__photography-frontend
+    depends_on:
+      - photography-backend
+    restart: always
+    # stdin_open: true        # Equivalent to `-i` (interactive)
+    # tty: true               # Equivalent to `-t` (pseudo-TTY)
+    # command: /bin/sh        # or /bin/sh if Bash isn't installed
+      
   # Landing page
   landing-page:
     build: ./landing
@@ -74,10 +87,12 @@ services:
       - nginx__landing-page
       - nginx__mongo-express
       - nginx__photography-backend
+      - nginx__photography-frontend
     depends_on:
       - landing-page
       - mongo-express
       - photography-backend
+      - photography-frontend
 
 volumes:
   mongodb:
@@ -87,4 +102,5 @@ networks:
   nginx__mongo-express:
   mongo-express__mongodb:
   nginx__photography-backend:
+  nginx__photography-frontend:
   photography-backend__mongodb:
