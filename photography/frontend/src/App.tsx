@@ -1,25 +1,14 @@
 import { FC } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-
-const BASE_PATH = import.meta.env.VITE_BASE_PATH;
-console.debug('BASE_PATH', { basepath: BASE_PATH });
-
-const HelloWork: FC = () => (<> Hello Work </>);
+import { RouterProvider } from "react-router-dom"
+import { Router } from "./components/Router";
+import { Toaster } from "react-hot-toast";
 
 const App: FC = () => {
-  const router = createBrowserRouter(
-    [
-      {
-        path: '/',
-        Component: HelloWork
-      }
-    ],
-    {
-      basename: BASE_PATH
-    });
-
   return (
-    <RouterProvider router={router} />
+    <>
+      <RouterProvider router={Router} />
+      <Toaster position="top-center" />
+    </>
   )
 }
 
