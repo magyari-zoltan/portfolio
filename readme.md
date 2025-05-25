@@ -279,7 +279,7 @@ networks:
 ```
 
 
-### 3 Create mongoDB database with docker compose
+### 3. Create mongoDB database with docker compose
 
 ```yaml
 services:
@@ -421,7 +421,15 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 const BASE_PATH = import.meta.env.VITE_BASE_PATH;
 console.debug('BASE_PATH', { basepath: BASE_PATH });
 
-const HelloWork: FC = () => (<> Hello Work </>);
+const HelloWork: FC = () => { 
+    const data = useLoaderData();
+
+    return (
+        <> 
+            {`Hello Work: ${data.result}`} 
+        </> 
+    )
+};
 
 const App: FC = () => {
   const router = createBrowserRouter(
@@ -429,6 +437,14 @@ const App: FC = () => {
       {
         path: '/',
         element: <HelloWork />
+        loader: async () => {
+            const response = await fetch('https://...');
+            if(!response.ok) {
+                throw new Response('Failed ...', {status: response.status});
+            }
+            return { result: await response.json() };
+        },
+        errorElement: <ErrorHandler />
       }
     ],
     {
@@ -445,6 +461,41 @@ export default App
 
 Define **BASE_PATH** in **.evn** file
 ```
-VITE_BASE_PATH=/photography
+VITE_BASE_PATH=https://.../photography
 ```
 
+#### 4.4 React Hot Toast
+
+Install packages
+```shell
+npm install react-hot-toast
+```
+Usage
+
+**ErrorHandler.tsx**
+```tsx
+const ErrorHandler: FC = () => {
+  const error = useRouteError();
+
+  useEffect(() => displayError(error), [error]);
+
+  return <div>Something went wrong. Please try again later.</div>;
+}
+```
+
+**handleError.ts**
+```ts
+export function displayError(error: unknown) {
+  if (error) {
+    console.error(error);
+
+    if (error instanceof Error) {
+      toast.error(error.message);
+    } else if (typeof error === 'object' && 'status' in error && 'data' in error) {
+      toast.error(error.data as string);
+    } else {
+      toast.error(`An unexpected error occured fetching albums(${error})`);
+    }
+  }
+}
+```
