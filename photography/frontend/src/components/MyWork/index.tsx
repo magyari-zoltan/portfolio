@@ -18,21 +18,21 @@ const MyWork: FC = () => {
   console.debug(data);
 
   return (
-    <main className="">
+    <main className="container">
       {
         data.albums.map(
           album => (
             <div
               key={album.coverImageName}
-              className=""
+              className="album"
             >
               <img
                 alt={album.coverImageName}
                 src={`${BACKEND_SERVER_URL}${BACKEND_BASE_PATH}/images/file/${album.coverImageName}`}
-                className=""
+                className="img"
               />
-              <div className="">
-                <h3 className="">{album.name}</h3>
+              <div className="title">
+                <h3 className="name">{album.name}</h3>
               </div>
             </div>
           )

@@ -1,0 +1,208 @@
+/* -------------------------------------------------------------------------- *
+ *                                   Globals
+ * -------------------------------------------------------------------------- */
+:root {
+    --max-page-width: 170rem;
+    --min-page-width: 40rem;
+
+    --shadow: 0px 4px 16px 0 rgba(0, 0, 0, 0.45), 0px 6px 32px 0 rgba(0, 0, 0, 0.25);
+
+    --shadow-small: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    --shadow-text: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    --shadow-image: 0px 2px 8px 0 rgba(0, 0, 0, 0.5), 0px 4px 16px 0 rgba(0, 0, 0, 0.25);
+    --shadow-dialog: 0px 4px 16px 0 rgba(0, 0, 0, 0.25), 0px 6px 32px 0 rgba(0, 0, 0, 0.15);
+
+    --shadow-button: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    --shadow-button-lowered: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    --shadow-button-elevated: 3px 3px 4px rgba(0, 0, 0, 0.5);
+
+    --color-button: var(--gray-9);
+    --bg-color-button: var(--gray-1);
+
+    --border-radius-image: 0.7rem;
+}
+
+/* -------------------------------------------------------------------------- *
+ *                                   Section
+ * -------------------------------------------------------------------------- */
+.section {
+  width: 100%;
+  padding-top: 7rem;
+  padding-bottom: 14rem;
+}
+
+/* -------------------------------------------------------------------------- *
+ *                                   Title
+ * -------------------------------------------------------------------------- */
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin: 0 auto;
+  width: 90%;
+  max-width: 50rem;
+
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+
+  & > h2, p {
+    text-align: center;
+  }
+}
+
+/* -------------------------------------------------------------------------- *
+ *                                   Button
+ * -------------------------------------------------------------------------- */
+.button {
+  display: block;
+  margin: 0;
+  padding: 1.2rem 3rem;
+  width: fit-content;
+
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.6rem;
+
+  color: var(--color-button);
+  background-color: var(--bg-color-button);
+
+  border: 1px solid var(--gray-3);
+  border-radius: 1rem;
+
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+    
+  &:focus {
+    outline: none;
+  }
+
+  &.button-float {
+    box-shadow: var(--shadow-button);
+
+    &:hover {
+      transform: translateX(-2px) translateY(-2px);
+      box-shadow: var(--shadow-button-elevated);
+      filter: brightness(102%);
+    }
+
+    &:active {
+      transform: translateX(1px) translateY(1px);
+      box-shadow: var(--shadow-button-lowered);
+      filter: brightness(98%);
+    }
+  }
+
+  &.button-primary {
+    color: var(--gray-1);
+    background-color: var(--signature-color);
+
+    border: 1px solid var(--primary-color);
+  }
+}
+  
+/* -------------------------------------------------------------------------- *
+ *                                    Chip
+ * -------------------------------------------------------------------------- */
+.chip {
+  display: inline-block;
+
+  margin: 20px 20px 0 0;
+  padding: 15px 20px 10px;
+
+  color: var(--gray-8);
+  background-color: var(--gray-1);
+  border: 1px solid var(--gray-4);
+  border-radius: 0.5rem;
+
+  font-family: 'Normal';
+  font-weight: 600;
+
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+
+/* -------------------------------------------------------------------------- *
+ *                                   Form
+ * -------------------------------------------------------------------------- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  /* --------------------------------- Label -------------------------------- */
+  label {
+    display: block;
+
+    color: var(--gray-7);
+    font-size: 1.5rem;
+
+    /* ------------------------------- Input -------------------------------- */
+    .input {
+      display: block;
+      margin-top: 1rem;
+      padding: 1rem;
+      width: 100%;
+
+      font-size: 1.5rem;
+      line-height: 1rem;
+
+      color: var(--gray-6);
+      border: 1px solid var(--gray-3);
+      border-radius: 0.25rem;
+
+      caret-color: var(--gray-9);
+    }
+
+    /* ----------------------------- Textarea ------------------------------- */
+    textarea.input {
+      resize: vertical;
+
+      padding: 2rem 1rem;
+      min-height: 10rem;
+
+      line-height: 1.5rem;
+    }
+  }
+
+  /* ------------------------------- Button --------------------------------- */
+  & > .button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+  }
+
+  & > .button {
+    align-self: flex-end;
+  }
+}
+
+/* -------------------------------------------------------------------------- *
+ *                                   Dialog
+ * -------------------------------------------------------------------------- */
+.dialog {
+  margin: 0;
+  padding: 2.5rem;
+  width: 90%;
+  min-width: 36rem;
+  max-width: 70rem;
+
+  background-color: var(--gray-0);
+
+  border: 1px solid var(--gray-3);
+  border-radius: 1rem;
+}
+
+.dialog-float {
+  box-shadow: var(--shadow);
+}
