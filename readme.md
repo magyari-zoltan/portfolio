@@ -499,3 +499,140 @@ export function displayError(error: unknown) {
   }
 }
 ```
+
+### 5. CSS
+
+#### 5.1 MyWork
+
+```tsx
+<main className="container">
+  {
+    data.albums.map(
+      album => (
+        <div
+          key={album.coverImageName}
+          className="album"
+        >
+          <img
+            alt={album.coverImageName}
+            src={`...`}
+            className="img"
+          />
+          <div className="title">
+            <h3 className="name">{album.name}</h3>
+          </div>
+        </div>
+      )
+    )
+  }
+</main>
+```
+
+##### Photo album layout
+
+```css
+main.container {
+  display: flex;                    /* Flex box layout. Trys to fit all items in a single line. */
+  flex-wrap: wrap;                  /* If items do not fit single line, allows the items to be wrapped. */
+  justify-content: flex-start;      /* Defines alignment along the main axis. Because layout is horizontal, aligns items the to the left. */
+  align-content: flex-start;        /* Defines how items are layed out along the cross axis. Aligns items to the top of the line. */
+
+  padding: 1rem;                   /* Leaves space around the albums grid. */
+
+  .album {
+    padding: 1rem;                 /* Leaves space between the albums. An alternative would be 'gap: 2rem'. Intentionally was used 
+                                      padding instead. Using gap makes very difficult to place the title on the top of the image. */
+  }
+}
+```
+
+##### Responsive layout of the albums
+
+```css
+main.container {
+  container: main-container / inline-size;      /* Giving a the name 'main-container' to the container, to be referenced in media queries. */
+
+  min-width: var(--min-page-width);             /* Minimal width that the album layout can be sqeezed into. */
+  max-width: var(--max-page-width);             /* Maximal width of the album layout beyond it won't grow anymore. */
+  min-height: 100vh;                            /* Even if there are not enough albums to fill the screen the container's height 
+                                                   should be at least the size of the screen. */
+  margin: 0 auto;                               /* If width reaches maximal width, the container will be centered. */
+
+  .album {
+    width: 24.99999%;                           /* If the album has 25% of the container's length then 4 albums will be shown in on line. */
+  }
+
+  @container main-container (width < 1600px) {  /* If the container's width is smaller then 1600px. */
+    .album {
+      width: 33.33333%;                         /* If the album has 33% of the container's length then 3 albums will be shown in on line. */
+    }
+  }
+
+  @container main-container (width < 1200px) {  /* If the container's width is smaller then 1200px. */
+    .album {
+      width: 49.99999%;                         /* If the album has 50% of the container's length then 2 albums will be shown in on line. */
+    }
+  }
+
+  @container main-container (width < 800px) {   /* If the container's width is smaller then 800px. */
+    .album {
+      width: 100%;                              /* If the album has 100% of the container's length then 1 album will be shown in on line. */
+    }
+  }
+```
+
+##### Making albums identical size
+
+```css
+main.container {
+  .album {
+    width: 24.99999%;           /* Only the width of the image is fix, the height will be define by the contained image */
+  }
+
+  .img {
+    width: 100%;                /* The image should be as wide as the album element alows it. */
+    object-fit: cover;           /* Makes the image as big that covers its container's area completly even if in this case it will 
+                                   be cropped. */
+    aspect-ratio: 1 / 1.5;      /* Forces the aspect ratio 1 / 1.5 */
+  }
+}
+```
+
+##### Showing the title of the album on mouse hover
+
+```css
+main.container {
+  .album {
+    position: relative;                 /* In order the title to be placed with absolut position the album's position should be 
+                                           set to relative. */
+  }
+
+  .album:hover .title {                 /* Show on hover. */
+    opacity: 1;
+  }
+
+  .title {
+    position: absolute;                 /* It is used absolute position to move the title with absolute coordinates within the album. */
+    top: 0;                             /* Moves the title on top of the album. Used together with 'position: absolute'. */
+    left: 0;                            /* Moves the title to the left of the album. Used together with 'position: absolute'. */
+
+    min-width: calc(100% - 2rem);       /* 100% width would be the length of the album with its paddings, because of the 
+                                           'box-sizing: border-box'. The width of the padding must be extracted. */
+    margin: 1rem;                       /* Puts space around the title to compensate for the padding of the album. */
+
+    background: rgba(0,0,0,0.5);        /* Create a semi transparent gray background for the title. */
+    color: var(--gray-0);               /* Set the color of the title. */
+
+    opacity: 0;                         /* Defaultly hide the title. On hove will be set on 'opacity: 1;'. */
+    transition: opacity 0.3s;           /* Makes a transition between show / hide title. */
+
+    /* Makes the bottom edges of the title rounded to match the rounded edges of the image. */
+    border-radius: var(--border-radius-image) var(--border-radius-image) 0 0;
+
+    .name {
+      padding: 0.5rem;                  /* Add padding to make title more estatically pleasing. */
+      text-align: center;               /* Title is aligned to the middle. */
+    }
+  }
+```
+
