@@ -2,6 +2,9 @@ import { FC } from "react";
 import './index.css';
 import { useLoaderData } from "react-router";
 import { Album } from "./model/Album";
+import Main from "./components/Main";
+import Header from "../Common/Header";
+import { useHeaderNavItems } from "../Common/Header/helpers/useHeaderNavItems";
 
 const BACKEND_BASE_PATH = import.meta.env.VITE_BACKEND_BASE_PATH;
 console.debug('BACKEND_BASE_PATH', BACKEND_BASE_PATH);
@@ -15,30 +18,21 @@ type WorkData = {
 
 const MyWork: FC = () => {
   const data = useLoaderData() as WorkData;
+  const navItems = useHeaderNavItems();
+
   console.debug(data);
+  console.debug(navItems);
 
   return (
-    <main className="container">
-      {
-        data.albums.map(
-          album => (
-            <div
-              key={album.coverImageName}
-              className="album"
-            >
-              <img
-                alt={album.coverImageName}
-                src={`${BACKEND_SERVER_URL}${BACKEND_BASE_PATH}/images/file/${album.coverImageName}`}
-                className="img"
-              />
-              <div className="title">
-                <h3 className="name">{album.name}</h3>
-              </div>
-            </div>
-          )
-        )
-      }
-    </main>
+    <>
+      <Header
+        selected="MyWork"
+        basePath={`${BACKEND_SERVER_URL}${BACKEND_BASE_PATH}`}
+        navItems={navItems} />
+      <Main
+        basePath={`${BACKEND_SERVER_URL}${BACKEND_BASE_PATH}`}
+        albums={data.albums} />
+    </>
   )
 };
 
