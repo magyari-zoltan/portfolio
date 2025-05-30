@@ -2,11 +2,11 @@ import { FC } from "react";
 import { Album } from "../model/Album"
 
 interface MainProps {
-  basePath: string;
   albums: Album[];
+  basePath: string;
 }
 
-const Main: FC<MainProps> = ({ basePath, albums }) => (
+const Main: FC<MainProps> = ({ albums, basePath }) => (
   <main className="container">
     {
       albums.map(

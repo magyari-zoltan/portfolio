@@ -4,7 +4,6 @@ import { useLoaderData } from "react-router";
 import { Album } from "./model/Album";
 import Main from "./components/Main";
 import Header from "../Common/components/Header";
-import { useHeaderNavItems } from "../Common/components/Header/helpers/useHeaderNavItems";
 
 const BACKEND_BASE_PATH = import.meta.env.VITE_BACKEND_BASE_PATH;
 console.debug('BACKEND_BASE_PATH', BACKEND_BASE_PATH);
@@ -18,20 +17,16 @@ type WorkData = {
 
 const MyWork: FC = () => {
   const data = useLoaderData() as WorkData;
-  const navItems = useHeaderNavItems();
-
   console.debug(data);
-  console.debug(navItems);
 
   return (
     <>
       <Header
         selected="MyWork"
-        basePath={`${BACKEND_SERVER_URL}${BACKEND_BASE_PATH}`}
-        navItems={navItems} />
+        basePath={`${BACKEND_SERVER_URL}${BACKEND_BASE_PATH}`} />
       <Main
-        basePath={`${BACKEND_SERVER_URL}${BACKEND_BASE_PATH}`}
-        albums={data.albums} />
+        albums={data.albums}
+        basePath={`${BACKEND_SERVER_URL}${BACKEND_BASE_PATH}`} />
     </>
   )
 };

@@ -1,42 +1,44 @@
 import { FC } from "react";
 import { Camera, Instagram, Facebook } from 'lucide-react';
+import { useHeaderNavItems } from "./helpers/useHeaderNavItems";
 import "./index.css";
 
 interface HeaderProps {
-  selected: string;
+  selected: "MyWork";
   basePath: string;
-  navItems: {
-    name: string;
-    href: string;
-  }[];
 }
 
-const Header: FC<HeaderProps> = ({ basePath, selected, navItems }) => (
-  <header className="container">
-    <nav className="container">
-      {
-        navItems.map(
-          navItem => (
-            <a
-              className={`nav-item ${selected === navItem.name ? 'selected' : ''}`}
-              key={`${navItem.href}`}
-              href={`${basePath}/${navItem.href}`}
-            >
-              {navItem.name}
-            </a>
+const Header: FC<HeaderProps> = ({ basePath, selected }) => {
+  const navItems = useHeaderNavItems();
+  console.debug(navItems);
+
+  return (
+    <header className="container">
+      <nav className="container">
+        {
+          navItems.map(
+            navItem => (
+              <a
+                className={`nav-item ${selected === navItem.name ? 'selected' : ''}`}
+                key={`${navItem.href}`}
+                href={`${basePath}/${navItem.href}`}
+              >
+                {navItem.name}
+              </a>
+            )
           )
-        )
-      }
-    </nav>
+        }
+      </nav>
 
-    <h1 className="title">My Photography</h1>
+      <h1 className="title">My Photography</h1>
 
-    <div className="social-media">
-      <Camera />
-      <Instagram />
-      <Facebook />
-    </div>
-  </header >
-)
+      <div className="social-media">
+        <Camera />
+        <Instagram />
+        <Facebook />
+      </div>
+    </header >
+  )
+}
 
 export default Header;
