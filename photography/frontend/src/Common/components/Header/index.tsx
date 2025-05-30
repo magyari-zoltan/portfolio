@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Camera, Instagram, Facebook } from 'lucide-react';
 import { useHeaderNavItems } from "./helpers/useHeaderNavItems";
 import "./index.css";
+import { useScrollObserver } from "../../hooks/useScrollObserver";
 
 interface HeaderProps {
   selected: "MyWork";
@@ -10,10 +11,11 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ basePath, selected }) => {
   const navItems = useHeaderNavItems();
-  console.debug(navItems);
+  const { topReached } = useScrollObserver();
+  console.debug(navItems, "top reached:", topReached);
 
   return (
-    <header className="container">
+    <header className={`container ${topReached ? 'top' : ''}`}>
       <nav className="container">
         {
           navItems.map(
