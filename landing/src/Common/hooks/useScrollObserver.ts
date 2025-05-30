@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 export const useScrollObserver = () => {
   const [bottomReached, setBottomReached] = useState(false);
-  const [topReached, setTopReached] = useState(false);
+  const [topReached, setTopReached] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
