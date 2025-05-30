@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { RouterProvider } from "react-router-dom"
-import { Router } from "./components/Router";
+import { Router } from "./Router";
 import { Toaster } from "react-hot-toast";
 
 const App: FC = () => {

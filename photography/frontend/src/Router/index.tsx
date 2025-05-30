@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom"
 import MyWork from "../MyWork";
-import ErrorHandler from "../Common/ErrorHandler";
+import ErrorHandler from "../Common/components/ErrorHandler";
 
 const BACKEND_BASE_PATH = import.meta.env.VITE_BACKEND_BASE_PATH;
 console.debug('BACKEND_BASE_PATH', BACKEND_BASE_PATH);
