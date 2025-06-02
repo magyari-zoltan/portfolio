@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Camera, Instagram, Facebook } from 'lucide-react';
+import { useScrollObserver } from "../../hooks/useScrollObserver";
 import { useHeaderNavItems } from "./helpers/useHeaderNavItems";
 import "./index.css";
-import { useScrollObserver } from "../../hooks/useScrollObserver";
 
 interface HeaderProps {
   selected: "MyWork";

@@ -33,10 +33,10 @@ header.container {
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
-    }
 
-    .selected {
-      text-decoration: underline;
+      &.selected {
+        text-decoration: underline;
+      }
     }
   }
 
@@ -81,8 +81,7 @@ header.container.top {
     }
 
     .social-media {
-      justify-content: center;
-      gap: 4rem;
+      display: none;
     }
   }
 }

@@ -9,8 +9,8 @@ export const useHeaderNavItems = () => {
       href: "contact"
     },
     {
-      name: "Albums",
-      href: "albums"
+      name: "Admin",
+      href: "admin"
     }
   ]
 }
