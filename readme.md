@@ -500,6 +500,34 @@ export function displayError(error: unknown) {
 }
 ```
 
+#### 4.5 Scroll to a DOM element
+
+To scroll to a specific section when a user interacts with an element (for
+example the **ChevronDown** icon) create a ref for the target container and use
+`window.scrollTo()` with the header height as an offset.
+
+```tsx
+import { FC, useRef } from 'react';
+
+const MyComponent: FC = () => {
+  const targetRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    const header = document.querySelector('header.container') as HTMLElement | null;
+    const headerHeight = header?.offsetHeight ?? 0;
+    const offsetTop = targetRef.current?.offsetTop ?? 0;
+    window.scrollTo({ top: offsetTop - headerHeight, behavior: 'smooth' });
+  };
+
+  return (
+    <>
+      <ChevronDown onClick={handleScroll} />
+      <div ref={targetRef}>Album section...</div>
+    </>
+  );
+};
+```
+
 ### 5. CSS
 
 #### 5.1 MyWork

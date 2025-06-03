@@ -2,8 +2,9 @@ import { FC, useRef } from "react";
 import { Camera, Instagram, Facebook, ChevronDown } from 'lucide-react';
 import { Album } from "../model/Album"
 import "./Main.css";
-import { useTitleOpacity } from "../helpers/useTitleOpacity";
+import { useTitleOpacity } from "../hooks/useTitleOpacity";
 import { useResizeObserver } from "../../Common/hooks/useResizeObserver";
+import { handleScrollToAlbums } from "../helpers/mainHelper";
 
 interface MainProps {
   albums: Album[];
@@ -12,6 +13,7 @@ interface MainProps {
 
 const Main: FC<MainProps> = ({ albums, basePath }) => {
   const mainRef = useRef<HTMLDivElement>(null);
+  const albumContainerRef = useRef<HTMLDivElement>(null);
 
   const { width } = useResizeObserver(mainRef);
   const titleOpacity = useTitleOpacity(width);
@@ -29,10 +31,10 @@ const Main: FC<MainProps> = ({ albums, basePath }) => {
           <Facebook />
         </div>
 
-        <ChevronDown />
+        <ChevronDown onClick={() => handleScrollToAlbums(albumContainerRef)} />
       </section>
 
-      <div className="album-container">
+      <div ref={albumContainerRef} className="album-container">
         {
           albums.map(
             album => (
