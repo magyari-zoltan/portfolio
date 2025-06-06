@@ -1,4 +1,4 @@
-import { useScrollObserver } from "../../Common/hooks/useScrollObserver"
+import { useScrollObserver } from "../../../../Common/hooks/useScrollObserver"
 
 const HORIZONTAL_BREAK_POINT = 800;
 
