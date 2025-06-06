@@ -5,11 +5,12 @@ import { useHeaderNavItems } from "./helpers/useHeaderNavItems";
 import "./index.css";
 
 interface HeaderProps {
-  selected: "MyWork";
+  selected: "My work" | "Contact";
+  title: string;
   basePath: string;
 }
 
-const Header: FC<HeaderProps> = ({ basePath, selected }) => {
+const Header: FC<HeaderProps> = ({ basePath, title, selected }) => {
   const navItems = useHeaderNavItems();
   const { topReached } = useScrollObserver();
   console.debug(navItems, "top reached:", topReached);
@@ -32,7 +33,7 @@ const Header: FC<HeaderProps> = ({ basePath, selected }) => {
         }
       </nav>
 
-      <h1 className="title">My Photography</h1>
+      <h1 className={`title ${!title ? 'hidden' : ''}`}>{title}</h1>
 
       <div className="social-media">
         <Camera />

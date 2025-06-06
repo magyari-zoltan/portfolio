@@ -24,6 +24,7 @@ header.container {
     gap: 2rem;
 
     .nav-item {
+      min-width: fit-content;
       margin-top: 0;
 
       color: var(--signature-color-light);
@@ -74,6 +75,10 @@ header.container.top {
 
     nav.container {
       justify-content: center;
+    }
+
+    .title.hidden {
+      display: none;
     }
 
     .title {

@@ -1,0 +1,26 @@
+footer.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 5px;
+  
+
+  min-width: var(--min-page-width);
+  max-width: var(--max-page-width);
+
+  background-color: var(--gray-0);
+
+  margin: 0 auto;
+  padding: 2rem 4rem;
+  
+  & > .created-by {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  & > .portfolio-link {
+    font-size: 1.2rem;
+    text-decoration: none;
+  }
+}
