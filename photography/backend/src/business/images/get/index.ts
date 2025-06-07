@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import path from 'path';
 import fs from 'fs';
 import { parseParam } from '../../../common/request-params';
-import { getImageFromDB } from '../upload/database';
+import { fetchtImageById } from '../database';
 
 const IMAGES_VOLUME: string = `${process.env.IMAGES_VOLUME}`;
 
@@ -37,7 +37,7 @@ export async function getImageByName(req: Request, res: Response) {
 export async function getImageById(req: Request, res: Response) {
   try {
     const id = parseParam(req.params, 'id');
-    const image = await getImageFromDB(id);
+    const image = await fetchtImageById(id);
     res.json(image);
   } catch (errorDetail) {
     const message = `The image can not be retrieved. ${errorDetail}`;

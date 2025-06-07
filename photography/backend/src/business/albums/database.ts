@@ -1,7 +1,7 @@
 import { Types } from "mongoose";
-import Album from "../../../database/collections/Album";
-import Image from "../../../database/collections/Image";
-import { IAlbum } from "../../../model/IAlbum";
+import Album from "../../database/collections/Album";
+import { IAlbum } from "../../model/IAlbum";
+import Image from "../../database/collections/Image";
 
 /**
  * Creates a new album entry in the database.
@@ -32,7 +32,18 @@ export async function createNewAlbumEntryInDB(name: string, coverImageName: stri
 
   console.debug(`New album entry: ${album}`);
   console.debug(`Cover image: ${image}`);
-  return album;
+  return album as IAlbum;
+}
+
+/**
+ * Retrieves the list of albums from the database.
+ *
+ * @returns Promise<IAlbum[]>
+ */
+export async function fetchAlbums(): Promise<IAlbum[]> {
+  const albums = await Album.find().exec();
+  console.debug(`Albums retrieved from db: ${albums}`);
+  return albums as IAlbum[];
 }
 
 /**
@@ -51,7 +62,7 @@ export async function existsAlbum(name: string): Promise<boolean> {
  * @returns Promise<IAlbum>
  * @throws The album with the id '${id}' does not exists.
  */
-export async function getAlbumFromDB(id: Types.ObjectId): Promise<IAlbum> {
+export async function fetchAlbum(id: Types.ObjectId): Promise<IAlbum> {
   const album = await Album.findById(id).exec();
   console.debug(`Album retrieved from db: ${album}`);
 
