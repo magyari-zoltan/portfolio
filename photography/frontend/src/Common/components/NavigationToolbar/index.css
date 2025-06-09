@@ -1,0 +1,13 @@
+.navigation-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: center;
+
+  padding: 2rem 8rem;
+
+  & > .book {
+    font-weight: 700;
+  }
+}
+

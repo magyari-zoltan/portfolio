@@ -16,6 +16,10 @@
     --shadow-button-lowered: 1px 1px 3px rgba(0, 0, 0, 0.7);
     --shadow-button-elevated: 3px 3px 4px rgba(0, 0, 0, 0.5);
 
+    --shadow-link: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    --shadow-link-lowered: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    --shadow-link-elevated: 3px 3px 3px rgba(0, 0, 0, 0.4);
+
     --color-button: var(--gray-9);
     --bg-color-button: var(--gray-1);
 
@@ -56,6 +60,42 @@
 }
 
 /* -------------------------------------------------------------------------- *
+ *                                    Link
+ * -------------------------------------------------------------------------- */
+.link {
+  min-width: fit-content;
+  margin-top: 0;
+
+  color: var(--link-color);
+  text-decoration: none;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  cursor: pointer;
+}
+
+.link-float {
+  filter: drop-shadow(var(--shadow-link));
+
+  &:hover {
+    transform: translateX(-2px) translateY(-2px);
+    filter: brightness(102%) drop-shadow(var(--shadow-link-elevated));
+  }
+
+  &:active {
+    transform: translateX(1px) translateY(1px);
+    filter: brightness(98%) drop-shadow(var(--shadow-link-lowered));
+  }
+}
+
+.link-buy {
+  color: var(--buy-link-color);
+}
+
+/* -------------------------------------------------------------------------- *
  *                                   Button
  * -------------------------------------------------------------------------- */
 .button {
@@ -79,6 +119,8 @@
   -khtml-user-select: none;
   -webkit-user-select: none;
   -o-user-select: none;
+
+  cursor: pointer;
     
   &:focus {
     outline: none;
@@ -105,6 +147,13 @@
     background-color: var(--signature-color);
 
     border: 1px solid var(--primary-color);
+  }
+
+  &.button-buy {
+    color: var(--gray-1);
+    background-color: var(--buy-color);
+
+    border: 1px solid var(--buy-color);
   }
 }
   
@@ -205,4 +254,18 @@
 
 .dialog-float {
   box-shadow: var(--shadow);
+}
+
+/* -------------------------------------------------------------------------- *
+ *                              Main container
+ * -------------------------------------------------------------------------- */
+main.container {
+  min-width: var(--min-page-width);
+  max-width: var(--max-page-width);
+  min-height: 100vh;
+
+  margin: 0 auto;
+  padding: 1rem 0 0;
+
+  background-color: var(--white);
 }

@@ -22,7 +22,7 @@ const Header: FC<HeaderProps> = ({ basePath, title, selected }) => {
           navItems.map(
             navItem => (
               <a
-                className={`nav-item ${selected === navItem.name ? 'selected' : ''}`}
+                className={`nav-item link ${selected === navItem.name ? 'selected' : ''}`}
                 key={`${navItem.href}`}
                 href={`${basePath}/${navItem.href}`}
               >

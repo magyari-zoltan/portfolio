@@ -6,7 +6,7 @@ export const useTitleOpacity = (width: number) => {
   const { scrollTop } = useScrollObserver();
   let titleBottomPosition = 400;
   if (width < HORIZONTAL_BREAK_POINT) {
-    titleBottomPosition = 200;
+    titleBottomPosition = 300;
   }
 
   if (scrollTop < titleBottomPosition) {

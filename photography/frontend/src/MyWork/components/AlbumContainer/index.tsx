@@ -1,10 +1,10 @@
 import { FC, RefObject } from "react";
 import { useNavigate } from "react-router";
-import { Album } from "../../model/Album"
+import { IAlbum } from "../../model/IAlbum"
 import "./index.css";
 
 interface MainProps {
-  albums: Album[];
+  albums: IAlbum[];
   basePath: string;
   albumContainerRef: RefObject<HTMLDivElement | null>;
 }

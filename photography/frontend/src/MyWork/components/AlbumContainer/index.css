@@ -1,4 +1,6 @@
 .album-container {
+  --gap: 2rem;
+
   container: album-container / inline-size;
 
   display: flex;
@@ -6,10 +8,14 @@
   justify-content: flex-start;
   align-content: flex-start;
 
+  padding: 16rem 8rem;
+
+  background-color: var(--signature-color);
+
   .album {
     position: relative;
 
-    padding: 1rem;
+    padding: var(--gap);
     width: 24.99999%;
   }
 
@@ -49,8 +55,9 @@
     top: 0;
     left: 0;
 
-    min-width: calc(100% - 2rem);
-    margin: 1rem;
+    min-width: calc(100% - 2 * var(--gap));
+    max-width: calc(100% - 2 * var(--gap));
+    margin: var(--gap);
     padding: 2rem;
 
     background: rgba(0,0,0,0.5);
@@ -67,3 +74,28 @@
     }
   }
 }
+
+@media (max-width: 1600px) {
+  .album-container {
+    padding: 20rem 3rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .album-container {
+    padding: 20rem 2rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .album-container {
+    padding: 20rem 1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .album-container {
+    padding: 20rem 0;
+  }
+}
+

@@ -1,24 +1,15 @@
 import { FC, useRef } from "react";
 import { useLoaderData } from "react-router";
-import { Album } from "./model/Album";
+import { BACKEND_BASE_PATH, BACKEND_SERVER_URL, FRONTEND_SERVER_URL } from "../Common/helpers/globals";
 import Header from "../Common/components/Header";
+import Footer from "../Common/components/Footer";
 import { useResizeObserver } from "../Common/hooks/useResizeObserver";
 import AlbumContainer from "./components/AlbumContainer";
 import SelfIntroduction from "./components/SelfIntroduction";
-import './index.css';
-import Footer from "../Common/components/Footer";
-
-const BACKEND_BASE_PATH = import.meta.env.VITE_BACKEND_BASE_PATH;
-console.debug('BACKEND_BASE_PATH', BACKEND_BASE_PATH);
-
-const BACKEND_SERVER_URL = import.meta.env.VITE_BACKEND_SERVER_URL;
-console.debug('BACKEND_SERVER_URL', BACKEND_SERVER_URL);
-
-const FRONTEND_SERVER_URL = import.meta.env.VITE_FRONTEND_SERVER_URL;
-console.debug('FRONTEND_SERVER_URL', FRONTEND_SERVER_URL);
+import { IAlbum } from "./model/IAlbum";
 
 type MyWorkData = {
-  albums: Album[];
+  albums: IAlbum[];
 }
 
 const MyWork: FC = () => {

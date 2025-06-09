@@ -21,9 +21,13 @@
     --gray-7: dimgray;
     --gray-8: #3d3a38;
     --gray-9: #040404;
-    --signature-color: #1d2133;
-    --signature-color-light: #5a6284;
-    --accent-color: #332912;
+    --signature-color: #1a2630;
+    --signature-color-light: #34424f;
+    --accent-color: #332512;
+    --danger-color: #321214;
+    --buy-color: #492528;
+    --buy-link-color: #774b4e;
+    --link-color: #53697d;
 }
 
 /*----------------------------------- BASE -----------------------------------*/

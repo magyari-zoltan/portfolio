@@ -23,29 +23,17 @@ header.container {
     align-items: center;
     gap: 2rem;
 
-    .nav-item {
-      min-width: fit-content;
-      margin-top: 0;
-
-      color: var(--signature-color-light);
-      text-decoration: none;
-
-      user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-
-      &.selected {
-        text-decoration: underline;
-      }
+    .nav-item.selected {
+      text-decoration: underline;
     }
   }
 
   .title {
     width: 100%;
-
-    font-size: 2rem;
     margin-top: 0;
+
+    color: var(--gray-9);
+    font-size: 2rem;
   }
 
   .social-media {
@@ -60,7 +48,7 @@ header.container {
 
       cursor: pointer;
 
-      color: var(--gray-7);
+      color: var(--link-color);
     }
   }
 }
