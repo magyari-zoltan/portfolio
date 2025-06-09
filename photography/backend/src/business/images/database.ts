@@ -1,6 +1,6 @@
-import { toObjectID } from "../../../common/database";
-import Image from "../../../database/collections/Image"
-import { IImage } from "../../../model/IImage";
+import { toObjectID } from "../../common/database";
+import Image from "../../database/collections/Image"
+import { IImage } from "../../model/IImage";
 import { Types } from 'mongoose';
 
 /**
@@ -36,7 +36,7 @@ export async function existsImage(name: string): Promise<boolean> {
  * @returns Promise<IImage>
  * @throws The image with the id '${id}' does not exists.
  */
-export async function getImageFromDB(id: Types.ObjectId): Promise<IImage> {
+export async function fetchtImageById(id: Types.ObjectId): Promise<IImage> {
   const image = await Image.findById(id).exec();
   console.debug(`Image retrieved from db: ${image}`);
 
@@ -45,6 +45,23 @@ export async function getImageFromDB(id: Types.ObjectId): Promise<IImage> {
   }
 
   return image as IImage;
+}
+
+/**
+ * Retrieves all images from the database belonging to a give album.
+ *
+ * @param albumId is the id of the album of interest.
+ * @returns Promise<IImage[]> the list of images from the album.
+ */
+export async function fetchAlbumImages(albumId: string): Promise<IImage[]> {
+  const images = await Image.find({ albumId }).exec();
+  console.debug(`Images in the album with id ${albumId}: ${images}`);
+
+  if (!images) {
+    return [];
+  }
+
+  return images as IImage[];
 }
 
 /**

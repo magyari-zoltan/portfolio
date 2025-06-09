@@ -5,6 +5,16 @@ import { Types } from 'mongoose';
  */
 export interface IImage {
   /**
+   * The technical id of the album.
+   */
+  _id: Types.ObjectId;
+
+  /**
+   * Version
+   */
+  __v: number;
+
+  /**
    * The id of the album that contains the image.
    */
   albumId: Types.ObjectId;

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { parseFormData } from './parser';
-import { createNewAlbumEntryInDB, existsAlbum } from './database';
 import { saveImageToStore } from '../../../common/image-store';
+import { createNewAlbumEntryInDB, existsAlbum } from '../database';
+import { parseFormData } from './parser';
 
 
 /**

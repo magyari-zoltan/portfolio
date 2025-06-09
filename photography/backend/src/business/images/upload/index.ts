@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import { parseFormData } from './parser';
-import { deleteImageFromStore, saveImageToStore } from '../../../common/image-store';
-import { createNewImageEntryInDB } from './database';
-import { getAlbumFromDB } from '../../albums/create/database';
 import { toObjectID } from '../../../common/database';
+import { deleteImageFromStore, saveImageToStore } from '../../../common/image-store';
+import { fetchAlbum } from '../../albums/database';
+import { createNewImageEntryInDB } from '../database';
 
 /**
  * Business logic for upload images.
@@ -18,7 +18,7 @@ export async function uploadImage(req: Request, res: Response) {
 
   try {
     const { albumId, images } = await parseFormData(req);
-    await getAlbumFromDB(toObjectID(albumId));
+    await fetchAlbum(toObjectID(albumId));
 
     for (let index = 0; index < images.length; index++) {
       const image = images[index];

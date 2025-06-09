@@ -5,6 +5,16 @@ import { Types } from 'mongoose';
  */
 export interface IAlbum {
   /**
+   * The technical id of the album.
+   */
+  _id: Types.ObjectId;
+
+  /**
+   * Version
+   */
+  __v: number;
+
+  /**
    * The name under which the image is saved to the store.
    */
   coverImageId: Types.ObjectId;
