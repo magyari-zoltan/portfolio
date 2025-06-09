@@ -278,6 +278,38 @@ networks:
   nginx__photography-frontend:
 ```
 
+#### 2.5 Handling client side routing
+
+React Router works on the client side only. When navigating directly to
+`/album/:albumId` the server must still deliver `index.html` so that the router
+can resolve the route. To accomplish this the frontend container runs nginx with
+a custom configuration:
+
+```nginx
+server {
+  listen 80;
+  server_name _;
+
+  root /usr/share/nginx/html;
+  index index.html;
+
+  location / {
+    try_files $uri $uri/ /index.html;
+  }
+}
+```
+
+The Dockerfile copies this configuration into the image:
+
+```Dockerfile
+FROM nginx:alpine-slim
+COPY --from=builder /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+```
+
+Without this, refreshing the browser on a deep link like `/album/1` would result
+in a 404 error because nginx would attempt to serve a file with that path.
+
 
 ### 3. Create mongoDB database with docker compose
 
@@ -526,6 +558,39 @@ const MyComponent: FC = () => {
     </>
   );
 };
+```
+
+#### 4.6 Routing to the Album component
+
+Clicking an album cover should navigate to the album page. The following pieces
+were added:
+
+* **Album component** &ndash; displays album content.
+* **AlbumContainer** uses `useNavigate` to redirect when an image is clicked.
+* **Router** registers a new route `/album/:albumId` with a loader fetching the
+  album's images.
+
+```tsx
+import { useNavigate } from 'react-router';
+
+<div onClick={() => navigate(`/album/${album._id}`)}>
+  <img src="..." />
+</div>
+```
+
+The router configuration:
+
+```tsx
+{
+  path: '/album/:albumId',
+  Component: Album,
+  loader: async ({ params }) => {
+    const response = await fetch(`${BACKEND_SERVER_URL}${BACKEND_BASE_PATH}/albums/${params.albumId}`);
+    if (!response.ok) throw new Response('Failed to fetch album', { status: response.status });
+    return { albums: await response.json() };
+  },
+  errorElement: <ErrorHandler />,
+}
 ```
 
 ### 5. CSS
