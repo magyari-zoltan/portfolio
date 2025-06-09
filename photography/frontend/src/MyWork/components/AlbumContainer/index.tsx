@@ -1,4 +1,5 @@
 import { FC, RefObject } from "react";
+import { useNavigate } from "react-router";
 import { Album } from "../../model/Album"
 import "./index.css";
 
@@ -9,12 +10,18 @@ interface MainProps {
 }
 
 const AlbumContainer: FC<MainProps> = ({ albums, basePath, albumContainerRef }) => {
+  const navigate = useNavigate();
+
   return (
     <div ref={albumContainerRef} className="album-container">
       {
         albums.map(
           album => (
-            <div key={album.coverImageName} className="album" >
+            <div
+              key={album.coverImageName}
+              className="album"
+              onClick={() => navigate(`/album/${album._id}`)}
+            >
 
               <img
                 alt={album.coverImageName}
@@ -30,7 +37,7 @@ const AlbumContainer: FC<MainProps> = ({ albums, basePath, albumContainerRef }) 
           )
         )
       }
-    </div>
+    </div >
   )
 }
 
