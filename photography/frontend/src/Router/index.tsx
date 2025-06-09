@@ -35,7 +35,7 @@ export const Router = createBrowserRouter(
       Component: Album,
       loader: async ({ params }) => {
         const albumId = params.albumId;
-        const response = await fetch(`${BACKEND_SERVER_URL}${BACKEND_BASE_PATH}/albums/${albumId}`, {
+        const response = await fetch(`${BACKEND_SERVER_URL}${BACKEND_BASE_PATH}/albums/${albumId}/images`, {
           headers: {
             'Content-Type': 'application/json'
           }

@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { parseFormData } from './parser';
 import { toObjectID } from '../../../common/database';
 import { deleteImageFromStore, saveImageToStore } from '../../../common/image-store';
-import { fetchAlbum } from '../../albums/database';
+import { fetchAlbumById } from '../../albums/database';
 import { createNewImageEntryInDB } from '../database';
 
 /**
@@ -18,7 +18,7 @@ export async function uploadImage(req: Request, res: Response) {
 
   try {
     const { albumId, images } = await parseFormData(req);
-    await fetchAlbum(toObjectID(albumId));
+    await fetchAlbumById(toObjectID(albumId));
 
     for (let index = 0; index < images.length; index++) {
       const image = images[index];

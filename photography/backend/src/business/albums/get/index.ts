@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { fetchAlbumImages, fetchtImageById } from '../../images/database';
-import { fetchAlbums } from '../database';
-import { IAlbum } from '../../../model/IAlbum';
+import { fetchtImageById } from '../../images/database';
+import { fetchAlbumById, fetchAlbums } from '../database';
+import { parseParam } from '../../../common/request-params';
 
 /**
  * Business logic for retrieving all albums from the database.
@@ -28,20 +28,25 @@ export async function getAlbums(req: Request, res: Response) {
   }
 }
 
-
 /**
- * Business logic for retrieving all images from a given album.
+ * Business logic for retrieving an album by its id.
  *
- * @throws `Failed to get images for the album with the id ${albumId}. ${errorDetail}`
+ * @throws `Failed to get the album with the id ${albumId}. ${errorDetail}`
  */
-export async function getAlbumImages(req: Request, res: Response) {
-  const albumId = req.params.id;
-
+export async function getAlbumById(req: Request, res: Response) {
   try {
-    const images = await fetchAlbumImages(albumId);
-    res.status(200).json(images);
-  } catch (errorDetail) {
-    const message = `Failed to get images for the album with the id ${albumId}. ${errorDetail}`;
+    const albumId = parseParam(req.params, 'id');
+
+    try {
+      const album = await fetchAlbumById(albumId);
+      res.status(200).json(album);
+    } catch (errorDetail) {
+      const message = `Failed to get the album with the id ${albumId}. ${errorDetail}`;
+      console.error(message);
+      res.status(500).json({ message });
+    }
+
+  } catch (message) {
     console.error(message);
     res.status(500).json({ message });
   }

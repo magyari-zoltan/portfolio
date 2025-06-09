@@ -62,7 +62,7 @@ export async function existsAlbum(name: string): Promise<boolean> {
  * @returns Promise<IAlbum>
  * @throws The album with the id '${id}' does not exists.
  */
-export async function fetchAlbum(id: Types.ObjectId): Promise<IAlbum> {
+export async function fetchAlbumById(id: Types.ObjectId): Promise<IAlbum> {
   const album = await Album.findById(id).exec();
   console.debug(`Album retrieved from db: ${album}`);
 
