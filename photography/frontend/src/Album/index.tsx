@@ -24,7 +24,6 @@ const Album: FC = () => {
 
   useEffect(() => scrollToRefObject(mainRef), []);
 
-
   return (
     <>
       <Header

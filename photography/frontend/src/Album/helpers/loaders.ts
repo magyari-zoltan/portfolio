@@ -1,4 +1,8 @@
 import { BACKEND_BASE_PATH, BACKEND_SERVER_URL } from "../../Common/helpers/globals";
+import { IAlbum } from "../model/IAlbum";
+import { IImage } from "../model/IImage";
+
+const albumDataMap = new Map<string, { album: IAlbum, images: IImage[] }>();
 
 export async function loadAlbumData({ params }: { params: any }) {
   const HEADERS = {
@@ -9,6 +13,12 @@ export async function loadAlbumData({ params }: { params: any }) {
 
   const basePath = `${BACKEND_SERVER_URL}${BACKEND_BASE_PATH}`;
   const albumId = params.albumId;
+
+  if (albumDataMap.has(albumId)) {
+    const result = albumDataMap.get(albumId);
+    console.info(`Images for the album with id (${albumId}) were loaded from cache successfully:`, result);
+    return result;
+  }
 
   const albumPromise = fetch(`${basePath}/albums/${albumId}`, HEADERS);
   const imagesPromise = fetch(`${basePath}/albums/${albumId}/images`, HEADERS);
@@ -26,5 +36,7 @@ export async function loadAlbumData({ params }: { params: any }) {
 
   const result = { album: await album.json(), images: await images.json() };
   console.debug(`Images for the album with id (${albumId}) were fetched successfully:`, result);
+
+  albumDataMap.set(albumId, result);
   return result;
 }
