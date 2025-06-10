@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom"
-import MyWork from "../MyWork";
 import ErrorHandler from "../Common/components/ErrorHandler";
-import Album from "../Album";
 import { loadAlbumData } from "../Album/helpers/loaders";
 import { loadMyWorkData } from "../MyWork/helpers/loaders";
+import MyWork from "../MyWork";
+import Album from "../Album";
 
 const BACKEND_BASE_PATH = import.meta.env.VITE_BACKEND_BASE_PATH;
 console.debug('BACKEND_BASE_PATH', BACKEND_BASE_PATH);
