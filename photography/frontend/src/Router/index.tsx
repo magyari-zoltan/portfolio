@@ -4,6 +4,7 @@ import { loadAlbumData } from "../Album/helpers/loaders";
 import { loadMyWorkData } from "../MyWork/helpers/loaders";
 import MyWork from "../MyWork";
 import Album from "../Album";
+import PhotoSlideshow from "../PhotoSlideshow";
 
 const BACKEND_BASE_PATH = import.meta.env.VITE_BACKEND_BASE_PATH;
 console.debug('BACKEND_BASE_PATH', BACKEND_BASE_PATH);
@@ -22,6 +23,12 @@ export const Router = createBrowserRouter(
     {
       path: '/album/:albumId',
       Component: Album,
+      loader: loadAlbumData,
+      errorElement: <ErrorHandler />
+    },
+    {
+      path: '/album/:albumId/slideshow/:imageId',
+      Component: PhotoSlideshow,
       loader: loadAlbumData,
       errorElement: <ErrorHandler />
     }

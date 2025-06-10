@@ -16,10 +16,7 @@ type AlbumData = {
 
 const Album: FC = () => {
   const mainRef = useRef<HTMLDivElement>(null);
-
   const data = useLoaderData() as AlbumData;
-  console.debug('Album data:', data);
-
   const basePath = `${BACKEND_SERVER_URL}${BACKEND_BASE_PATH}`;
 
   useEffect(() => scrollToRefObject(mainRef), []);

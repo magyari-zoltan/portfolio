@@ -1,0 +1,13 @@
+.image-frame {
+  padding: 2rem;
+
+  .image {
+    height: 75%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1.5;
+    margin: 0 auto;
+
+    border-radius: var(--border-radius-image);
+    box-shadow: var(--shadow-image);
+  }
+}

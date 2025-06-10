@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { useNavigate } from "react-router";
 import { IImage } from "../../model/IImage";
 import './index.css';
 
@@ -8,6 +9,8 @@ interface ImageContainerProps {
 }
 
 const ImageContainer: FC<ImageContainerProps> = ({ images, basePath }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="image-container">
       {
@@ -18,6 +21,7 @@ const ImageContainer: FC<ImageContainerProps> = ({ images, basePath }) => {
                 alt={image.name}
                 src={`${basePath}/images/file/${image.name}`}
                 className="image"
+                onClick={() => navigate(`/album/${image.albumId}/slideshow/${image._id}`)}
               />
             </div>
           )
