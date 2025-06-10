@@ -2,7 +2,7 @@ export const useHeaderNavItems = () => {
   return [
     {
       name: "My work",
-      href: "my-work"
+      href: ""
     },
     {
       name: "Contact",

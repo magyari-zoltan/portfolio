@@ -7,10 +7,10 @@ import "./index.css";
 interface HeaderProps {
   selected: "My work" | "Contact";
   title: string;
-  basePath: string;
+  frontendServerPath: string;
 }
 
-const Header: FC<HeaderProps> = ({ basePath, title, selected }) => {
+const Header: FC<HeaderProps> = ({ frontendServerPath, title, selected }) => {
   const navItems = useHeaderNavItems();
   const { topReached } = useScrollObserver();
   console.debug(navItems, "top reached:", topReached);
@@ -24,7 +24,7 @@ const Header: FC<HeaderProps> = ({ basePath, title, selected }) => {
               <a
                 className={`nav-item link ${selected === navItem.name ? 'selected' : ''}`}
                 key={`${navItem.href}`}
-                href={`${basePath}/${navItem.href}`}
+                href={`${frontendServerPath}/${navItem.href}`}
               >
                 {navItem.name}
               </a>
