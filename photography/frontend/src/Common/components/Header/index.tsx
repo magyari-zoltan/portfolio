@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, RefObject } from "react";
 import { Camera, Instagram, Facebook } from 'lucide-react';
 import { useScrollObserver } from "../../hooks/useScrollObserver";
 import { useHeaderNavItems } from "./helpers/useHeaderNavItems";
@@ -7,12 +7,13 @@ import "./index.css";
 interface HeaderProps {
   selected: "My work" | "Contact";
   title: string;
+  mainRef: RefObject<HTMLElement | null>;
   frontendServerPath: string;
 }
 
-const Header: FC<HeaderProps> = ({ frontendServerPath, title, selected }) => {
+const Header: FC<HeaderProps> = ({ selected, title, frontendServerPath, mainRef }) => {
   const navItems = useHeaderNavItems();
-  const { topReached } = useScrollObserver();
+  const { topReached } = useScrollObserver(mainRef);
   console.debug(navItems, "top reached:", topReached);
 
   return (

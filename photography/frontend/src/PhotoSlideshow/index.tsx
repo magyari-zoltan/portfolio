@@ -6,8 +6,8 @@ import { IAlbum } from "./model/IAlbum";
 import { IImage } from "./model/IImage";
 import Footer from "../Common/components/Footer";
 import NavigationToolbar from "../Common/components/NavigationToolbar";
-import { scrollToRefObject } from "../Common/helpers/uiEffects";
 import ImagePresenter from "./component/ImagePresenter";
+import { scrollToTop } from "../Common/helpers/uiEffects";
 
 type AlbumData = {
   album: IAlbum;
@@ -18,19 +18,20 @@ interface PhotoSlideShowProps {
 }
 
 const PhotoSlideshow: FC<PhotoSlideShowProps> = () => {
-  const mainRef = useRef<HTMLDivElement>(null);
+  const mainRef = useRef<HTMLElement>(null);
   const data = useLoaderData() as AlbumData;
 
   const { imageId } = useParams();
   const image = data.images.filter((image) => image._id == imageId)[0];
 
-  useEffect(() => scrollToRefObject(mainRef), []);
+  useEffect(() => scrollToTop(mainRef), []);
 
   return (
     <>
       <Header
         selected="My work"
         title={`${data.album.name}`}
+        mainRef={mainRef}
         frontendServerPath={`${FRONTEND_SERVER_URL}${BASE_PATH}`}
       />
 

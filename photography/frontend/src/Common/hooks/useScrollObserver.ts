@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { RefObject, useEffect, useState } from 'react';
 
 export type ScrollState = {
   scrollTop: number;
@@ -6,7 +6,7 @@ export type ScrollState = {
   bottomReached: boolean;
 }
 
-export const useScrollObserver = () => {
+export const useScrollObserver = (refObject: RefObject<HTMLElement | null>) => {
   const [scrollState, setScrollState] = useState<ScrollState>({
     scrollTop: 0,
     topReached: true,
@@ -16,19 +16,28 @@ export const useScrollObserver = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const fullHeight = document.documentElement.scrollHeight;
+      if (refObject.current) {
+        const scrollTop = refObject.current.scrollTop;
+        const windowHeight = refObject.current.clientHeight;
+        const fullHeight = refObject.current.scrollHeight;
 
-      setScrollState({
-        scrollTop,
-        topReached: !scrollTop,
-        bottomReached: (scrollTop + windowHeight >= fullHeight - 1)
-      });
+        setScrollState({
+          scrollTop,
+          topReached: !scrollTop,
+          bottomReached: (scrollTop + windowHeight >= fullHeight - 1)
+        });
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    if (refObject.current) {
+      refObject.current.addEventListener('scroll', handleScroll);
+    }
+
+    return () => {
+      if (refObject.current) {
+        refObject.current.removeEventListener('scroll', handleScroll);
+      }
+    }
   }, []);
 
   return scrollState;

@@ -6,11 +6,12 @@ import './index.css';
 
 interface SelfIntroductionProps {
   width: number;
-  refObject: RefObject<HTMLDivElement | null>;
+  scrollable: RefObject<HTMLElement | null>;
+  scrollTo: RefObject<HTMLElement | null>;
 }
 
-const SelfIntroduction: FC<SelfIntroductionProps> = ({ width, refObject }) => {
-  const titleOpacity = useTitleOpacity(width);
+const SelfIntroduction: FC<SelfIntroductionProps> = ({ width, scrollable, scrollTo }) => {
+  const titleOpacity = useTitleOpacity(scrollable, width);
 
   return (
     <section className="self-introduction" style={{ opacity: titleOpacity }}>
@@ -23,7 +24,7 @@ const SelfIntroduction: FC<SelfIntroductionProps> = ({ width, refObject }) => {
         <Facebook />
       </div>
 
-      <ChevronDown onClick={() => scrollToRefObject(refObject)} />
+      <ChevronDown onClick={() => scrollToRefObject(scrollable, scrollTo)} />
     </section>
   );
 }
