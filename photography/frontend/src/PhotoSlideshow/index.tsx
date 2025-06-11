@@ -34,7 +34,7 @@ const PhotoSlideshow: FC<PhotoSlideShowProps> = () => {
         frontendServerPath={`${FRONTEND_SERVER_URL}${BASE_PATH}`}
       />
 
-      <main ref={mainRef} className="container" >
+      <main ref={mainRef} className="container fit-content" >
         <NavigationToolbar previouseURL={`/album/${data.album._id}`} />
         <ImagePresenter image={image} />
       </main >
