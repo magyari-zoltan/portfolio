@@ -14,8 +14,8 @@ const SelfIntroduction: FC<SelfIntroductionProps> = ({ width, refObject }) => {
 
   return (
     <section className="self-introduction" style={{ opacity: titleOpacity }}>
-      <h2 >Hi! I'm Magyari Zoltán</h2>
-      <p>I'm a portrait photographer based in Targu Mures / Romania</p>
+      <h2 className="title">Hi! I'm Magyari Zoltán</h2>
+      <p className="description">I'm a portrait photographer based in Targu Mures / Romania</p>
 
       <div className="social-media">
         <Camera />

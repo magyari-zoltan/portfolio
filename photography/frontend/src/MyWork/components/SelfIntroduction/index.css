@@ -6,9 +6,14 @@
   align-items: center;
   text-align: center;
 
+  width: 75%;
   margin: 15rem auto 20rem;
 
   color: var(--gray-9);
+
+  & > .title, & > .description {
+    text-wrap: balance;
+  }
 
   .social-media {
     display: flex;
