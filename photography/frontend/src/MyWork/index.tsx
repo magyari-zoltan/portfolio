@@ -49,7 +49,10 @@ const MyWork: FC = () => {
         />
       </main>
 
-      <Footer frontendServerPath={`${FRONTEND_SERVER_URL}`} />
+      <Footer
+        mainRef={mainRef}
+        frontendServerPath={`${FRONTEND_SERVER_URL}`}
+      />
     </>
   )
 };

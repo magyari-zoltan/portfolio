@@ -40,7 +40,10 @@ const PhotoSlideshow: FC<PhotoSlideShowProps> = () => {
         <ImagePresenter image={image} />
       </main >
 
-      <Footer frontendServerPath={`${FRONTEND_SERVER_URL}`} />
+      <Footer
+        mainRef={mainRef}
+        frontendServerPath={`${FRONTEND_SERVER_URL}`}
+      />
     </>
   );
 }

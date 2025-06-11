@@ -3,7 +3,6 @@ footer.container {
   justify-content: center;
   align-items: flex-end;
   gap: 5px;
-  
 
   min-width: var(--min-page-width);
   max-width: var(--max-page-width);
@@ -14,6 +13,8 @@ footer.container {
 
   margin: 0 auto;
   padding: 2rem 4rem;
+
+  box-shadow: var(--shadow-small);
   
   & > .created-by {
     color: var(--accent-color);
@@ -26,3 +27,8 @@ footer.container {
     text-decoration: none;
   }
 }
+
+footer.container.bottom {
+  box-shadow: none;
+}
+

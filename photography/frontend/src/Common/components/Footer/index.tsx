@@ -1,23 +1,29 @@
+import { useScrollObserver } from "../../hooks/useScrollObserver";
 import "./index.css"
-import { FC } from "react";
+import { FC, RefObject } from "react";
 
 interface FooterProps {
+  mainRef: RefObject<HTMLElement | null>;
   frontendServerPath: string;
 }
 
-const Footer: FC<FooterProps> = ({ frontendServerPath }) => (
-  <footer className="container">
-    <span className="created-by">
-      Webpage crated by
+const Footer: FC<FooterProps> = ({ mainRef, frontendServerPath }) => {
+  const { bottomReached } = useScrollObserver(mainRef);
 
-    </span>
-    <a
-      className="portfolio-link"
-      href={`${frontendServerPath}`}
-    >
-      Magyari Zoltán
-    </a>
-  </footer>
-)
+  return (
+    <footer className={`container ${bottomReached ? 'bottom' : ''}`}>
+      <span className="created-by">
+        Webpage crated by
+
+      </span>
+      <a
+        className="portfolio-link"
+        href={`${frontendServerPath}`}
+      >
+        Magyari Zoltán
+      </a>
+    </footer>
+  )
+}
 
 export default Footer;

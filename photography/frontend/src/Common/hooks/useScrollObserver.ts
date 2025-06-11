@@ -1,4 +1,5 @@
 import { RefObject, useEffect, useState } from 'react';
+import { scrollToTop } from '../helpers/uiEffects';
 
 export type ScrollState = {
   scrollTop: number;
@@ -10,7 +11,7 @@ export const useScrollObserver = (refObject: RefObject<HTMLElement | null>) => {
   const [scrollState, setScrollState] = useState<ScrollState>({
     scrollTop: 0,
     topReached: true,
-    bottomReached: false,
+    bottomReached: true,
   });
   console.debug(scrollState);
 
@@ -20,14 +21,16 @@ export const useScrollObserver = (refObject: RefObject<HTMLElement | null>) => {
         const scrollTop = refObject.current.scrollTop;
         const windowHeight = refObject.current.clientHeight;
         const fullHeight = refObject.current.scrollHeight;
+        console.debug({ scrollToTop, windowHeight, fullHeight });
 
         setScrollState({
           scrollTop,
           topReached: !scrollTop,
-          bottomReached: (scrollTop + windowHeight >= fullHeight - 1)
+          bottomReached: (scrollTop + windowHeight >= fullHeight)
         });
       }
     };
+    handleScroll();
 
     if (refObject.current) {
       refObject.current.addEventListener('scroll', handleScroll);
