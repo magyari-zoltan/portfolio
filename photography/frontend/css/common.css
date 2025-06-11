@@ -262,10 +262,25 @@
 main.container {
   min-width: var(--min-page-width);
   max-width: var(--max-page-width);
-  min-height: 100vh;
 
+  height: calc(100vh - 13rem);
   margin: 0 auto;
   padding: 1rem 0 0;
 
+  overflow: auto;
+
   background-color: var(--white);
+}
+
+@media (max-width: 800px) {
+  main.container {
+    height: calc(100vh - 16rem);
+  }
+}
+
+/* -------------------------------------------------------------------------- *
+ *                                  Root        
+ * -------------------------------------------------------------------------- */
+body > #root {
+  min-height: 100vh;
 }
