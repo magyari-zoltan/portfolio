@@ -18,3 +18,15 @@
     box-shadow: var(--shadow-image);
   }
 }
+
+@container main-container (width < 800px) {
+  .image-frame {
+    padding: 2rem 4rem;
+    margin: auto 0;
+
+    .image {
+      width: 100%;
+      height: unset;
+    }
+  }
+}
