@@ -20,6 +20,7 @@ export async function getImageByName(req: Request, res: Response) {
       throw new Error(`The image '${imagePath}' does not exists.`);
     }
 
+    res.set('Cache-Control', 'public, max-age=600');
     res.sendFile(imagePath);
   } catch (errorDetail) {
     const message = `The image can not be retrieved. ${errorDetail}`;

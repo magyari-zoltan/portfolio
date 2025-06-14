@@ -1,8 +1,10 @@
+import { TIMEOUT_10_MINUTES } from "../../Common/helpers/constants";
 import { BACKEND_BASE_PATH, BACKEND_SERVER_URL } from "../../Common/helpers/globals";
 import { IAlbum } from "../model/IAlbum";
 import { IImage } from "../model/IImage";
 
 const albumDataMap = new Map<string, { album: IAlbum, images: IImage[] }>();
+console.debug('Initialize loader module', albumDataMap);
 
 export async function loadAlbumData({ params }: { params: any }) {
   const HEADERS = {
@@ -38,5 +40,6 @@ export async function loadAlbumData({ params }: { params: any }) {
   console.debug(`Images for the album with id (${albumId}) were fetched successfully:`, result);
 
   albumDataMap.set(albumId, result);
+  setTimeout(() => albumDataMap.delete(albumId), TIMEOUT_10_MINUTES);
   return result;
 }
