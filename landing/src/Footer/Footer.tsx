@@ -22,7 +22,7 @@ const Footer = () => {
           <strong>Mobile:</strong> +40 750 686 104
         </p>
         <p className="info">
-          <strong>App version:</strong> 1.0
+          <strong>App version:</strong> 1.1
         </p>
       </div>
 

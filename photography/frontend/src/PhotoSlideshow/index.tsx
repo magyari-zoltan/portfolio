@@ -20,9 +20,7 @@ interface PhotoSlideShowProps {
 const PhotoSlideshow: FC<PhotoSlideShowProps> = () => {
   const mainRef = useRef<HTMLElement>(null);
   const data = useLoaderData() as AlbumData;
-
   const { imageId } = useParams();
-  const image = data.images.filter((image) => image._id == imageId)[0];
 
   useEffect(() => scrollToTop(mainRef), []);
 
@@ -37,7 +35,7 @@ const PhotoSlideshow: FC<PhotoSlideShowProps> = () => {
 
       <main ref={mainRef} className="container fit-content" >
         <NavigationToolbar previouseURL={`/album/${data.album._id}`} />
-        <ImagePresenter image={image} />
+        <ImagePresenter displayedImageId={imageId} images={data.images} />
       </main >
 
       <Footer
