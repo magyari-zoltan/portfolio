@@ -75,6 +75,21 @@ services:
       - nginx__landing-page
     restart: always
       
+  # Keycloak authentication server
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    container_name: keycloak
+    command: start-dev
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_HTTP_RELATIVE_PATH: /keycloak
+      KC_PROXY: edge
+      KC_HOSTNAME_STRICT: false
+    networks:
+      - nginx__keycloak
+    restart: always
+
   # Reverse nginx proxy
   nginx-proxy:
     image: nginx:alpine-slim
@@ -88,11 +103,13 @@ services:
       - nginx__mongo-express
       - nginx__photography-backend
       - nginx__photography-frontend
+      - nginx__keycloak
     depends_on:
       - landing-page
       - mongo-express
       - photography-backend
       - photography-frontend
+      - keycloak
 
 volumes:
   mongodb:
@@ -104,3 +121,4 @@ networks:
   nginx__photography-backend:
   nginx__photography-frontend:
   photography-backend__mongodb:
+  nginx__keycloak:
