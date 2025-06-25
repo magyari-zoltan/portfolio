@@ -280,9 +280,11 @@ main.container {
   }
 }
 
-main.container.fit-content {
+main.container {
   container: main-container / inline-size;
+}
 
+main.container.fit-content {
   display: flex;
   flex-direction: column;
 

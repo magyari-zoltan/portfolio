@@ -7,10 +7,21 @@
 
   min-height: 0;
   min-width: 0;
-  padding: 2rem 8rem;
+  padding: 2rem 4rem;
 
   & > .book {
     font-weight: 700;
   }
 }
 
+@container main-container (width < 800px) {
+  .navigation-toolbar {
+    padding: 2rem 8rem;
+  }
+}
+
+@container main-container (width < 500px) {
+  .navigation-toolbar {
+    padding: 2rem 4rem;
+  }
+}
