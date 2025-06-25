@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef } from "react";
 import { useLoaderData } from "react-router";
-import { BACKEND_BASE_PATH, BACKEND_SERVER_URL, BASE_PATH, FRONTEND_SERVER_URL } from "../Common/helpers/globals";
+import { BACKEND_BASE_PATH, BACKEND_SERVER_URL, BASE_PATH } from "../Common/helpers/globals";
 import Header from "../Common/components/Header";
 import Footer from "../Common/components/Footer";
 import { useResizeObserver } from "../Common/hooks/useResizeObserver";
@@ -32,7 +32,7 @@ const MyWork: FC = () => {
         selected="My work"
         title=""
         mainRef={mainRef}
-        frontendServerPath={`${FRONTEND_SERVER_URL}${BASE_PATH}`}
+        frontendServerPath={`${BASE_PATH}`}
       />
 
       <main ref={mainRef} className="container">
@@ -51,7 +51,7 @@ const MyWork: FC = () => {
 
       <Footer
         mainRef={mainRef}
-        frontendServerPath={`${FRONTEND_SERVER_URL}`}
+        frontendServerPath={'/'}
       />
     </>
   )

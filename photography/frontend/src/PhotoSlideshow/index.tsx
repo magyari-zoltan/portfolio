@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef } from "react";
 import { useLoaderData, useParams } from "react-router";
-import { BASE_PATH, FRONTEND_SERVER_URL } from "../Common/helpers/globals";
+import { BASE_PATH } from "../Common/helpers/globals";
 import Header from "../Common/components/Header";
 import { IAlbum } from "./model/IAlbum";
 import { IImage } from "./model/IImage";
@@ -30,7 +30,7 @@ const PhotoSlideshow: FC<PhotoSlideShowProps> = () => {
         selected="My work"
         title={`${data.album.name}`}
         mainRef={mainRef}
-        frontendServerPath={`${FRONTEND_SERVER_URL}${BASE_PATH}`}
+        frontendServerPath={`${BASE_PATH}`}
       />
 
       <main ref={mainRef} className="container fit-content" >
@@ -40,7 +40,7 @@ const PhotoSlideshow: FC<PhotoSlideShowProps> = () => {
 
       <Footer
         mainRef={mainRef}
-        frontendServerPath={`${FRONTEND_SERVER_URL}`}
+        frontendServerPath={'/'}
       />
     </>
   );
